@@ -1,4 +1,4 @@
-# Summer 2024 CS 3200 Project Template Repository
+# SummerSync Project Template Repository
 
 ## About
 
