@@ -73,5 +73,34 @@ if st.button('Act as System Administrator',
     st.session_state['first_name'] = 'SysAdmin'
     st.switch_page('pages/20_Admin_Home.py')
 
+if st.button('Act as Katy Ito, a Guardian',
+        type = 'primary',
+        use_container_width=True):
+        st.session_state['authenticated'] = True
+        st.session_state['role'] = 'guardian'
+        st.session_state['first_name'] = 'Katy'
+        st.switch_page('pages/40_Guardian_Home.py')
 
+if st.button('Act as Jackie Saturn, a Camp Counselor',
+        type = 'primary',
+        use_container_width=True):
+        st.session_state['authenticated'] = True
+        st.session_state['role'] = 'camp_counselor'
+        st.session_state['first_name'] = 'Jackie'
+        st.switch_page('pages/50_Camp_Counselor_Home.py')
 
+if st.button('Act as Chad Cheese, a Camp Director',
+        type = 'primary',
+        use_container_width=True):
+        st.session_state['authenticated'] = True
+        st.session_state['role'] = 'camp_director'
+        st.session_state['first_name'] = 'Chad'
+        st.switch_page('pages/60_Camp_Director_Home.py')
+
+if st.button('Act as Stephanie Black, an App Admin',
+        type = 'primary',
+        use_container_width=True):
+        st.session_state['authenticated'] = True
+        st.session_state['role'] = 'app_admin'
+        st.session_state['first_name'] = 'Stephanie'
+        st.switch_page('pages/70_App_Admin_Home.py')
