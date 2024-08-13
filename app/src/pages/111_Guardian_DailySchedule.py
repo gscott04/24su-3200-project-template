@@ -7,7 +7,7 @@ from modules.nav import SideBarLinks
 
 SideBarLinks()
 
-st.write("# Find your camper's daily schedule!")
+st.write("# Find today's daily schedule!")
 
 guardian = requests.get('http://api:4000/g/guardian/<c_date>').json()
 
