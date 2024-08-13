@@ -7,6 +7,9 @@ from backend.db_connection import db
 '''from backend.customers.customer_routes import customers
 from backend.products.products_routes import products'''
 from backend.Katy.Katy_routes import guardian
+from backend.Jackie.Jackie_routes import camp_counselor
+from backend.Chad.Chad_routes import camp_director
+from backend.Stephanie.Stephanie_routes import app_admin
 
 import os
 from dotenv import load_dotenv
@@ -96,6 +99,12 @@ def create_app():
     # Register the routes from each Blueprint with the app object
     # and give a url prefix to each
     app.register_blueprint(guardian,   url_prefix='/g')
+    app.register_blueprint(camp_counselor,   url_prefix='/c')
+    app.register_blueprint(camp_director,   url_prefix='/d')
+    app.register_blueprint(app_admin,   url_prefix='/a')
+
+
+
 
     # Don't forget to return the app object
     return app
