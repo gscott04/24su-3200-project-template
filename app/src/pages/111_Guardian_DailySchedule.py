@@ -4,34 +4,32 @@ import streamlit as st
 import requests
 from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
+from datetime import date
 
 SideBarLinks()
 
 st.write("# Find today's daily schedule!")
 
-guardian = requests.get('http://api:4000/g/guardian/<c_date>').json()
+c_date = st.date_input("Select a date", value=date.today())
 
-try:
-  st.dataframe(guardian)
-except:
-  st.write("Could not connect to database to get guardian!")
-
-selected_date = st.date_input("Select a date", datetime.now())
-if st.button("Get Schedule"):
-    # Convert the date to string format YYYY-MM-DD
-    date_str = selected_date.strftime("%Y-%m-%d")
+if st.button('Get Schedule', type='primary', use_container_width=True):
+    # Convert the date to string format (assuming your Flask route expects YYYY-MM-DD)
+    date_str = c_date.strftime('%Y-%m-%d')
     
-    # Make the GET request to your Flask API
-    response = requests.get(f"http://localhost:5000/guardian/{date_str}")
-    
-    if response.status_code == 200:
-        data = response.json()
-        if data:
-            st.subheader(f"Schedule for {date_str}")
-            for item in data:
-                st.write(f"Date: {item['date']}")
-                st.write(f"Required Items: {item['requiredItems']}")
+    try:
+        # Make a GET request to your Flask route
+        response = requests.get(f'http://api:4000/g/guardian/{date_str}')
+        
+        if response.status_code == 200:
+            # If the request is successful, parse the JSON response
+            schedule_data = response.json()
+            
+            # Display the schedule data
+            st.write("Schedule for", c_date)
+            for item in schedule_data:
+                st.write(f"Date: {item['date']}, Required Items: {item['requiredItems']}")
         else:
-            st.info("No schedule found for this date.")
-    else:
-        st.error("Failed to retrieve schedule. Please try again.")
+            st.error(f"Failed to fetch schedule. Status code: {response.status_code}")
+    except requests.RequestException as e:
+        logger.error(f"Error fetching schedule: {str(e)}")
+        st.error("Failed to fetch schedule. Please check your connection and try again.")

@@ -16,7 +16,7 @@ def day_info(c_date):
     SELECT date, requiredItems
         FROM DailySchedule NATURAL JOIN ScheduleActivity NATURAL JOIN Activity NATURAL JOIN RequiredItems
         WHERE date = c_date;
-'''
+'''.format(c_date)
     cursor.execute(the_query)
     the_data = cursor.fetchall()
     the_response = make_response(the_data)
@@ -33,7 +33,7 @@ def camper_info(c_id):
         FROM Camper NATURAL JOIN Cabin NATURAL JOIN Staff
         WHERE Camper.camperID = c_id;
 
-'''
+'''.format(c_id)
     cursor.execute(the_query)
     the_data = cursor.fetchall()
     the_response = make_response(the_data)

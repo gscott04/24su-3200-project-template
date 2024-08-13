@@ -59,6 +59,9 @@ def CampDirectorHomeNav():
 def AppAdminHomeNav():
     st.sidebar.page_link("pages/70_App_Admin_Home.py", label="App Admin Home", icon='👤')
 
+def AppAdminCampNav():
+    st.sidebar.page_link("pages/72_App_Admin_Contact.py", label="App Admin Outreach", icon='🌺')
+
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False):
     """
