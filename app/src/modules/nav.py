@@ -47,6 +47,18 @@ def GuardianContact():
 def GuardianScheduleNav():
     st.sidebar.page_link("pages/111_Guardian_DailySchedule.py", label="Check Daily Schedule", icon='🗓️')
     
+#### ------------------------ Camp Counselor Role ------------------------
+def CampCounselorHomeNav():
+    st.sidebar.page_link("pages/50_Camp_Counselor_Home.py", label="Camp Counselor Home", icon='👤')
+
+#### ------------------------ Camp Director Role ------------------------
+def CampDirectorHomeNav():
+    st.sidebar.page_link("pages/60_Camp_Director_Home.py", label="Camp Director Home", icon='👤')
+
+#### ------------------------ App Admin Role ------------------------
+def AppAdminHomeNav():
+    st.sidebar.page_link("pages/70_App_Admin_Home.py", label="App Admin Home", icon='👤')
+
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False):
     """
@@ -94,13 +106,13 @@ def SideBarLinks(show_home=False):
             GuardianHomeNav()    
 
         if st.session_state['role'] == 'camp_counselor':
-            PolStratAdvHomeNav()      
+            CampCounselorHomeNav()      
 
         if st.session_state['role'] == 'camp_director':
-            PolStratAdvHomeNav()  
+            CampDirectorHomeNav()  
 
         if st.session_state['role'] == 'app_admin':
-            PolStratAdvHomeNav()          
+            AppAdminHomeNav()          
 
 
     # Always show the About page at the bottom of the list of links
