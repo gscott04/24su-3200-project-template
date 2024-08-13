@@ -7,68 +7,59 @@ import json
 from backend.db_connection import db
 from backend.ml_models.model01 import predict
 
-customers = Blueprint('customers', __name__)
+gaurdians = Blueprint('gaurdians', __name__)
 
-@customers.route('/prediction/<var01>/<var02>', methods=['GET'])
-def predict_value(var01, var02):
-    current_app.logger.info(f'var01 = {var01}')
-    current_app.logger.info(f'var02 = {var02}')
-
-    returnVal = predict(var01, var02)
-    return_dict = {'result': returnVal}
-
-    the_response = make_response(jsonify(return_dict))
+@gaurdians.route('/gaurdian/<c_date>', methods=['GET'])
+def day_info(c_date):
+    cursor = db.get_db().cursor
+    the_query = '''
+    SELECT date, requiredItems
+        FROM DailySchedule NATURAL JOIN ScheduleActivity NATURAL JOIN Activity NATURAL JOIN RequiredItems
+        WHERE date = c_date;
+'''
+    cursor.execute(the_query)
+    the_data = cursor.fetchall()
+    the_response = make_response(the_data)
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
-
 
 # Get all customers from the DB
-@customers.route('/customers', methods=['GET'])
-def get_customers():
-    current_app.logger.info('customer_routes.py: GET /customers')
-    cursor = db.get_db().cursor()
-    cursor.execute('select id, company, last_name,\
-        first_name, job_title, business_phone from customers')
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
+@gaurdians.route('/gaurdian/<c_id>', methods=['GET'])
+def day_info(c_id):
+    cursor = db.get_db().cursor
+    the_query = '''
+    SELECT phoneNumber, email
+        FROM Camper NATURAL JOIN Cabin NATURAL JOIN Staff
+        WHERE Camper.camperID = c_id;
+
+'''
+    cursor.execute(the_query)
+    the_data = cursor.fetchall()
+    the_response = make_response(the_data)
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
 
-@customers.route('/customers', methods=['PUT'])
-def update_customer():
-    current_app.logger.info('PUT /customers route')
-    cust_info = request.json
-    # current_app.logger.info(cust_info)
-    cust_id = cust_info['id']
-    first = cust_info['first_name']
-    last = cust_info['last_name']
-    company = cust_info['company']
+@gaurdians.route('/gaurdians', methods=['POST'])
+def med_needs():
+    # collecting data from the request object 
+    the_data = request.json
+    current_app.logger.info(the_data)
 
-    query = 'UPDATE customers SET first_name = %s, last_name = %s, company = %s where id = %s'
-    data = (first, last, company, cust_id)
+    #extracting the variable
+    c_id = the_data['camperID']
+    m_id = the_data['medID']
+    
+    # Constructing the query
+    query = 'insert into MedNeeds (camperID, medID) values ("'
+    query += c_id + '", "'
+    query += m_id + ")"
+    current_app.logger.info(query)
+
+    # executing and committing the insert statement 
     cursor = db.get_db().cursor()
-    r = cursor.execute(query, data)
+    cursor.execute(query)
     db.get_db().commit()
-    return 'customer updated!'
-
-# Get customer detail for customer with particular userID
-@customers.route('/customers/<userID>', methods=['GET'])
-def get_customer(userID):
-    current_app.logger.info('GET /customers/<userID> route')
-    cursor = db.get_db().cursor()
-    cursor.execute('select id, first_name, last_name from customers where id = {0}'.format(userID))
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-    return the_response
+    
+    return 'Success!'
