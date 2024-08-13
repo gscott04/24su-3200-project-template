@@ -11,7 +11,7 @@ st.write("Your Child's Conseler Contact")
 
 
 # You can access the session state to make a more customized/personalized app experience
-guardian = requests.get('http://api:4000/g/guardian/1').json()
+guardian = requests.get('http://api:4000/g/guardian').json()
 
 try:
   st.dataframe(guardian)
