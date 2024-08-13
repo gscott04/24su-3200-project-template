@@ -7,7 +7,7 @@ from modules.nav import SideBarLinks
 
 SideBarLinks()
 
-st.write("Your Child's Conseler Contact")
+st.write("Your Child's Counselor Contact")
 
 
 # You can access the session state to make a more customized/personalized app experience

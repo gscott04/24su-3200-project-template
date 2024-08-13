@@ -14,17 +14,12 @@ st.write('')
 st.write('')
 st.write('### What would you like to do today?')
 
-if st.button('Predict Value Based on Regression Model', 
+if st.button('Find the camp directors', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/11_Prediction.py')
+  st.switch_page('pages/71_App_Admin_DirectorID.py')  
 
 if st.button('Reach out to your camps', 
              type='primary',
              use_container_width=True):
   st.switch_page('pages/72_App_Admin_Contact.py')
-
-if st.button("View Classification Demo",
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/13_Classification.py')
