@@ -7,14 +7,23 @@ from modules.nav import SideBarLinks
 
 SideBarLinks()
 
-st.write("# Accessing a REST API from Within Streamlit")
+st.write("Medical Information Input")
 
-guardian = requests.get('http://api:4000/g/guardian').json()
+with st.form("enter med info"):
+    c_id = st.text_input("input your camper's ID:")
+    m_id = st.text_input("input the medical condition's ID:")
+    
 
-try:
-  st.dataframe(guardian)
-except:
-  st.write("Could not connect to database to get guardian!")
+    submitted = st.form_submit_button("submit")
+
+    if submitted: 
+        data = {}
+        data["camper ID"] = c_id
+        data["medical ID"] = m_id
+        st.write(data)
+
+        requests.post('http://api:4000/g/gaurdian', json = data)
+
 
 """
 Simply retrieving data from a REST api running in a separate Docker Container.
