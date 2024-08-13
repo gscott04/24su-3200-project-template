@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS summersync;
-CREATE DATABASE summersync;
+CREATE DATABASE IF NOT EXISTS summersync;
 USE summersync;
 
 DROP TABLE IF EXISTS Guardian;
