@@ -7,4 +7,4 @@ from modules.nav import SideBarLinks
 
 SideBarLinks()
 
-st.write("")
+st.write("Your camp's contact information")
