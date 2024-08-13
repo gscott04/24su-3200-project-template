@@ -7,7 +7,7 @@ import json
 from backend.db_connection import db
 from backend.ml_models.model01 import predict
 
-camp_counselor = Blueprint('camp_counselor', __name__)
+customers = Blueprint('customers', __name__)
 
 @customers.route('/prediction/<var01>/<var02>', methods=['GET'])
 def predict_value(var01, var02):
