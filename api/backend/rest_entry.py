@@ -99,7 +99,7 @@ def create_app():
     # Register the routes from each Blueprint with the app object
     # and give a url prefix to each
     app.register_blueprint(guardian,   url_prefix='/g')
-    app.register_blueprint(camp_counselor,   url_prefix='/c')
+    #app.register_blueprint(camp_counselor,   url_prefix='/c')
     app.register_blueprint(camp_director,   url_prefix='/d')
     app.register_blueprint(app_admin,   url_prefix='/a')
 
