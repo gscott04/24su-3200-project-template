@@ -40,6 +40,9 @@ def GuardianHomeNav():
 
 def GuardianTestNav():
     st.sidebar.page_link("pages/41_Guardian_Test.py", label="Test the Guardian API", icon='🛜')
+
+def GuardianScheduleNav():
+    st.sidebar.page_link("pages/111_Guardian_DailySchedule.py", label="Check Daily Schedule", icon='🗓️')
     
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False):
@@ -61,6 +64,12 @@ def SideBarLinks(show_home=False):
 
     # Show the other page navigators depending on the users' role.
     if st.session_state["authenticated"]:
+
+        # Show Get Daily Schedule, Get Counselor Contact Info, and Update Medical Needs if the user is a guardian.
+        if st.session_state['role'] == 'guardian':
+            GuardianHomeNav()
+            GuardianTestNav()
+            GuardianScheduleNav()
 
         # Show World Bank Link and Map Demo Link if the user is a political strategy advisor role.
         if st.session_state['role'] == 'pol_strat_advisor':
