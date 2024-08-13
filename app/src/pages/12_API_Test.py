@@ -9,7 +9,7 @@ SideBarLinks()
 
 st.write("# Accessing a REST API from Within Streamlit")
 
-guardians = requests.get('htt://api:4000/g/guardians').json()
+guardians = requests.get('http://api:4000/g/guardians').json()
 
 try:
   st.dataframe(guardians)
