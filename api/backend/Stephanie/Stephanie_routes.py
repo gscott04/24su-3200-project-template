@@ -33,8 +33,7 @@ def contact_info(adminID):
 
     return the_response 
 
-@app_admin.route('/app_admin/<admin_id>', methods=['GET']) 
-
+@app_admin.route('/app_admin/<admin_id>', methods=['GET'])
 def get_contacts(adminID):
     cursor = db.get_db().cursor()
     the_query = 'SELECT guardianEmail, phoneNumber FROM Admin NATURAL JOIN Location NATURAL JOIN CampLocation NATURAL JOIN Camp NATURAL JOIN Camper NATURAL JOIN Guardian WHERE adminID = adminID Limit 10;'.format(adminID)
