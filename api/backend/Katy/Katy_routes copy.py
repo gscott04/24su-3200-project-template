@@ -7,9 +7,9 @@ import json
 from backend.db_connection import db
 from backend.ml_models.model01 import predict
 
-gaurdians = Blueprint('gaurdians', __name__)
+guardians = Blueprint('guardians', __name__)
 
-@gaurdians.route('/gaurdian/<c_date>', methods=['GET'])
+@guardians.route('/gaurdian/<c_date>', methods=['GET'])
 def day_info(c_date):
     cursor = db.get_db().cursor
     the_query = '''
@@ -25,7 +25,7 @@ def day_info(c_date):
     return the_response
 
 # Get all customers from the DB
-@gaurdians.route('/gaurdian/<c_id>', methods=['GET'])
+@guardians.route('/gaurdian/<c_id>', methods=['GET'])
 def day_info(c_id):
     cursor = db.get_db().cursor
     the_query = '''
@@ -41,7 +41,7 @@ def day_info(c_id):
     the_response.mimetype = 'application/json'
     return the_response
 
-@gaurdians.route('/gaurdians', methods=['POST'])
+@guardians.route('/guardians', methods=['POST'])
 def med_needs():
     # collecting data from the request object 
     the_data = request.json
