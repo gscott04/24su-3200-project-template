@@ -9,7 +9,7 @@ from backend.ml_models.model01 import predict
 
 guardians = Blueprint('guardians', __name__)
 
-@guardians.route('/gaurdian/<c_date>', methods=['GET'])
+@guardians.route('/guardian/<c_date>', methods=['GET'])
 def day_info(c_date):
     cursor = db.get_db().cursor
     the_query = '''
@@ -25,7 +25,7 @@ def day_info(c_date):
     return the_response
 
 # Get all customers from the DB
-@guardians.route('/gaurdian/<c_id>', methods=['GET'])
+@guardians.route('/guardian/<c_id>', methods=['GET'])
 def day_info(c_id):
     cursor = db.get_db().cursor
     the_query = '''
@@ -41,7 +41,7 @@ def day_info(c_id):
     the_response.mimetype = 'application/json'
     return the_response
 
-@guardians.route('/guardians', methods=['POST'])
+@guardians.route('/guardian', methods=['POST'])
 def med_needs():
     # collecting data from the request object 
     the_data = request.json
