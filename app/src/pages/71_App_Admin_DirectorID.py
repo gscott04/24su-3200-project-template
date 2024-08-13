@@ -7,4 +7,4 @@ from modules.nav import SideBarLinks
 
 SideBarLinks()
 
-st.write("Medical Information Input")
+st.write("Find Camp Director ID")

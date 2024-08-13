@@ -59,6 +59,9 @@ def CampDirectorHomeNav():
 def AppAdminHomeNav():
     st.sidebar.page_link("pages/70_App_Admin_Home.py", label="App Admin Home", icon='👤')
 
+def AppAdminDirectorNav():
+    st.sidebar.page_link("pages/71_App_Admin_DirectorID.py", label="App Admin Director ID", icon='👤')
+
 def AppAdminCampNav():
     st.sidebar.page_link("pages/72_App_Admin_Contact.py", label="App Admin Outreach", icon='🌺')
 
@@ -106,7 +109,10 @@ def SideBarLinks(show_home=False):
             AdminPageNav()
 
         if st.session_state['role'] == 'guardian':
-            GuardianHomeNav()    
+            GuardianHomeNav()
+            GuardianTestNav()  
+            GuardianContact()
+            GuardianScheduleNav()  
 
         if st.session_state['role'] == 'camp_counselor':
             CampCounselorHomeNav()      
@@ -115,7 +121,9 @@ def SideBarLinks(show_home=False):
             CampDirectorHomeNav()  
 
         if st.session_state['role'] == 'app_admin':
-            AppAdminHomeNav()          
+            AppAdminHomeNav()   
+            AppAdminDirectorNav() 
+            AppAdminCampNav()      
 
 
     # Always show the About page at the bottom of the list of links
