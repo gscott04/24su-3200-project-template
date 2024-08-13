@@ -33,7 +33,7 @@ if st.button('View the Simple API Demo',
 if st.button("Reach out to a counsler",
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/13_Classification.py')
+  st.switch_page('pages/43_Guardian_contact.py')
 
 if st.button("Enter medical information",
              type='primary',
