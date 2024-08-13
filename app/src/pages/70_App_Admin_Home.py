@@ -19,10 +19,10 @@ if st.button('Predict Value Based on Regression Model',
              use_container_width=True):
   st.switch_page('pages/11_Prediction.py')
 
-if st.button('View the Simple API Demo', 
+if st.button('Reach out to your camps', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/12_API_Test.py')
+  st.switch_page('pages/72_App_Admin_Contact.py')
 
 if st.button("View Classification Demo",
              type='primary',
