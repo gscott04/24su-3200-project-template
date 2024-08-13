@@ -24,12 +24,12 @@ if st.button('View the Simple API Demo',
              use_container_width=True):
   st.switch_page('pages/12_API_Test.py')
 
-if st.button("Reach out to a counsler",
+if st.button("Reach out to a counseler",
              type='primary',
              use_container_width=True):
   st.switch_page('pages/43_Guardian_contact.py')
 
-if st.button("Testing Guardian Page",
+if st.button("Enter medical information",
              type='primary',
              use_container_width=True):
   st.switch_page('pages/41_Guardian_Test.py')  

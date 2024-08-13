@@ -41,6 +41,9 @@ def GuardianHomeNav():
 def GuardianTestNav():
     st.sidebar.page_link("pages/41_Guardian_Test.py", label="Test the Guardian API", icon='🛜')
 
+def GuardianContact():
+    st.sidebar.page_link("pages/43_Guardian_contact.py", label="Test", icon='🌺')
+
 def GuardianScheduleNav():
     st.sidebar.page_link("pages/111_Guardian_DailySchedule.py", label="Check Daily Schedule", icon='🗓️')
     
