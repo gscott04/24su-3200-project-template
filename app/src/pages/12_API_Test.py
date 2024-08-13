@@ -9,11 +9,19 @@ SideBarLinks()
 
 st.write("# Accessing a REST API from Within Streamlit")
 
+guardians = requests.get('htt://api:4000/g/guardians').json()
+
+try:
+  st.dataframe(guardians)
+except:
+  st.write("Could not connect to database to get guardians!")
+
 """
 Simply retrieving data from a REST api running in a separate Docker Container.
 
 If the container isn't running, this will be very unhappy.  But the Streamlit app 
 should not totally die. 
+"""
 """
 data = {} 
 try:
@@ -23,3 +31,4 @@ except:
   data = {"a":{"b": "123", "c": "hello"}, "z": {"b": "456", "c": "goodbye"}}
 
 st.dataframe(data)
+"""

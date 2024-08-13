@@ -95,7 +95,7 @@ def create_app():
 
     # Register the routes from each Blueprint with the app object
     # and give a url prefix to each
-    app.register_blueprint(guardians,   url_prefix='/c')
+    app.register_blueprint(guardians,   url_prefix='/g')
 
     # Don't forget to return the app object
     return app
