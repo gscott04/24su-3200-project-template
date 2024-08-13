@@ -13,7 +13,8 @@ camp_director = Blueprint('camp_director', __name__)
 @camp_director.route('/camp_director', methods=['GET'])
 def understafffed_cabins(): 
     cursor = db.get_db().cursor()
-    the_query = 'SELECT ca.cabinName, ca.cabinID FROM Cabin ca JOIN Camper cam on ca.cabinID = cam.cabinID WHERE ca.StaffID IS NULL GROUP BY ca.cabinName, ca.cabinID;'
+    the_query = '''SELECT ca.cabinName, ca.cabinID FROM Cabin ca JOIN Camper cam on ca.cabinID = cam.cabinID WHERE ca.StaffID IS NULL GROUP BY ca.cabinName, ca.cabinID;
+    '''
     cursor.execute(the_query)
     the_Data = cursor.fetchall()
     the_response = make_response(the_Data)  
@@ -25,7 +26,9 @@ def understafffed_cabins():
 @camp_director.route('/camp_director/<camperID>', methods=['GET'])
 def guardian_info(camperID):
     cursor = db.get_db().cursor() 
-    the_query = 'SELECT g.firstName, g.lastName, g.phone, g.email FROM Guardian g JOIN Camper c ON g.guardianID = c.guardianID WHERE c.camperID = camperID;'.format(camperID)
+    the_query = '''
+    SELECT g.firstName, g.lastName, g.phone, g.email FROM Guardian g JOIN Camper c ON g.guardianID = c.guardianID WHERE c.camperID = camperID;
+    '''.format(camperID)
     cursor.execute(the_query)
     the_Data = cursor.fetchall()
     the_response = make_response(the_Data)
@@ -38,7 +41,8 @@ def guardian_info(camperID):
 @camp_director.route('camp_director/', methods=['GET'])
 def unpaid_guardians(): 
     cursor = db.get_db().cursor()
-    the_query = 'SELECT g.firstName, g.lastName, g.phone FROM Guardian g WHERE g.paid = FALSE ORDER BY g.lastName ASC;'
+    the_query = '''SELECT g.firstName, g.lastName, g.phone FROM Guardian g WHERE g.paid = FALSE ORDER BY g.lastName ASC;
+    '''
     cursor.execute(the_query)
     the_Data = cursor.fetchall()
     the_response = make_response(the_Data)
