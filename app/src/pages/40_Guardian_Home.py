@@ -14,6 +14,12 @@ st.write('')
 st.write('')
 st.write('### What would you like to do today?')
 
+if st.button('Check Daily Schedule', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/111_Guardian_DailySchedule.py')
+
+
 if st.button('Predict Value Based on Regression Model', 
              type='primary',
              use_container_width=True):
@@ -24,10 +30,10 @@ if st.button('View the Simple API Demo',
              use_container_width=True):
   st.switch_page('pages/12_API_Test.py')
 
-if st.button("Reach out to a counsler",
+if st.button("View Classification Demo",
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/43_Guardian_contact.py')
+  st.switch_page('pages/13_Classification.py')
 
 if st.button("Testing Guardian Page",
              type='primary',
