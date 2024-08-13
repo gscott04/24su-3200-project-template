@@ -18,11 +18,11 @@ with st.form("enter med info"):
 
     if submitted: 
         data = {}
-        data["camper ID"] = c_id
-        data["medical ID"] = m_id
+        data["camperID"] = c_id
+        data["medID"] = m_id
         st.write(data)
 
-        requests.post('http://api:4000/g/gaurdian', json = data)
+        requests.post('http://api:4000/g/guardian', json = data)
 
 
 """

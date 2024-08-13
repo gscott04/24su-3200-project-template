@@ -1,5 +1,5 @@
 ########################################################
-# Sample blueprint of endpoints
+# Sample customers blueprint of endpoints
 # Remove this file if you are not using it in your project
 ########################################################
 from flask import Blueprint, request, jsonify, make_response, current_app
@@ -9,7 +9,6 @@ from backend.ml_models.model01 import predict
 
 guardian = Blueprint('guardian', __name__)
 
-# Get all required items for a given day
 @guardian.route('/guardian/<c_date>', methods=['GET'])
 def day_info(c_date):
     cursor = db.get_db().cursor
@@ -25,7 +24,7 @@ def day_info(c_date):
     the_response.mimetype = 'application/json'
     return the_response
 
-# Get a camper's counselor's contact information including phone number and email
+# Get all customers from the DB
 @guardian.route('/guardian/<c_id>', methods=['GET'])
 def camper_info(c_id):
     cursor = db.get_db().cursor
@@ -42,7 +41,6 @@ def camper_info(c_id):
     the_response.mimetype = 'application/json'
     return the_response
 
-# Insert a medical need into a camper's profile
 @guardian.route('/guardian', methods=['POST'])
 def med_needs():
     # collecting data from the request object 
@@ -55,8 +53,8 @@ def med_needs():
     
     # Constructing the query
     query = 'insert into MedNeeds (camperID, medID) values ("'
-    query += c_id + '", "'
-    query += m_id + ")"
+    query += c_id + '", '
+    query += m_id + ')'
     current_app.logger.info(query)
 
     # executing and committing the insert statement 
