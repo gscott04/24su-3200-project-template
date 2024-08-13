@@ -34,7 +34,13 @@ def AdminPageNav():
     st.sidebar.page_link("pages/20_Admin_Home.py", label="System Admin", icon='🖥️')
     st.sidebar.page_link("pages/21_ML_Model_Mgmt.py", label='ML Model Management', icon='🏢')
 
+#### ------------------------ Guardian Role ------------------------
+def GuardianHomeNav():
+    st.sidebar.page_link("pages/40_Guardian_Home.py", label="Guardian Home", icon='👤')
 
+def GuardianTestNav():
+    st.sidebar.page_link("pages/41_Guardian_Test.py", label="Test the Guardian API", icon='🛜')
+    
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False):
     """
@@ -73,7 +79,7 @@ def SideBarLinks(show_home=False):
             AdminPageNav()
 
         if st.session_state['role'] == 'guardian':
-            PolStratAdvHomeNav()    
+            GuardianHomeNav()    
 
         if st.session_state['role'] == 'camp_counselor':
             PolStratAdvHomeNav()      
