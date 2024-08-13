@@ -9,12 +9,8 @@ from backend.ml_models.model01 import predict
 
 guardians = Blueprint('guardians', __name__)
 
-<<<<<<< HEAD
-@guardians.route('/guardians/<c_date>', methods=['GET'])
-=======
 # Get all required items for a given day
 @guardians.route('/guardian/<c_date>', methods=['GET'])
->>>>>>> ba1d2f1e8406f70b21daffaa3b783aff85ba0537
 def day_info(c_date):
     cursor = db.get_db().cursor
     the_query = '''
