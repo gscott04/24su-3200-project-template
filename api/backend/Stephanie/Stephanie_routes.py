@@ -12,7 +12,8 @@ app_admin = Blueprint('app_admin', __name__)
 @app_admin.route('/app_admin/<adminID>', methods=['GET']) 
 def get_directors(adminID):
     cursor = db.get_db().cursor()
-    the_query = 'SELECT campDirectorID FROM Admin NATURAL JOIN Location NATURAL JOIN CampLocation NATURAL JOIN Camp Where adminID = adminID;'.format(adminID) 
+    the_query = '''SELECT campDirectorID FROM Admin NATURAL JOIN Location NATURAL JOIN CampLocation NATURAL JOIN Camp Where adminID = adminID;
+    '''.format(adminID) 
     cursor.execute(the_query) 
     the_Data = cursor.fetchall()
     the_response = make_response(the_Data)
@@ -24,7 +25,8 @@ def get_directors(adminID):
 @app_admin.route('/app_admin/<adminID>', methods=['GET']) 
 def contact_info(adminID): 
     cursor = db.get_db().cursor()
-    the_query = 'SELECT campPhone, campEmail FROM Admin NATURAL JOIN Location NATURAL JOIN CampLocation NATURAL JOIN Camp Where adminID = adminID;'.format(adminID)
+    the_query = '''SELECT campPhone, campEmail FROM Admin NATURAL JOIN Location NATURAL JOIN CampLocation NATURAL JOIN Camp Where adminID = adminID;
+    '''.format(adminID)
     cursor.execute(the_query) 
     the_Data = cursor.fetchall()
     the_response = make_response(the_Data)
@@ -33,10 +35,11 @@ def contact_info(adminID):
 
     return the_response 
 
-@app_admin.route('/app_admin/<adminID>', methods=['GET']) 
+@app_admin.route('/app_admin/<admin_id>', methods=['GET'])
 def get_contacts(adminID):
     cursor = db.get_db().cursor()
-    the_query = 'SELECT guardianEmail, phoneNumber FROM Admin NATURAL JOIN Location NATURAL JOIN CampLocation NATURAL JOIN Camp NATURAL JOIN Camper NATURAL JOIN Guardian WHERE adminID = adminID Limit 10;'.format(adminID)
+    the_query = '''SELECT guardianEmail, phoneNumber FROM Admin NATURAL JOIN Location NATURAL JOIN CampLocation NATURAL JOIN Camp NATURAL JOIN Camper NATURAL JOIN Guardian WHERE adminID = adminID Limit 10;
+    '''.format(adminID)
     cursor.execute(the_query) 
     the_Data = cursor.fetchall()
     the_response = make_response(the_Data)
