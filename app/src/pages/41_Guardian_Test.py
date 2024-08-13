@@ -9,12 +9,12 @@ SideBarLinks()
 
 st.write("# Accessing a REST API from Within Streamlit")
 
-guardians = requests.get('http://api:4000/g/guardians').json()
+guardian = requests.get('http://api:4000/g/guardian').json()
 
 try:
-  st.dataframe(guardians)
+  st.dataframe(guardian)
 except:
-  st.write("Could not connect to database to get guardians!")
+  st.write("Could not connect to database to get guardian!")
 
 """
 Simply retrieving data from a REST api running in a separate Docker Container.

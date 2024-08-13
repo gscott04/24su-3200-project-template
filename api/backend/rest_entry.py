@@ -6,7 +6,7 @@ from flask import Flask
 from backend.db_connection import db
 '''from backend.customers.customer_routes import customers
 from backend.products.products_routes import products'''
-from backend.Katy.Katy_routes import guardians
+from backend.Katy.Katy_routes import guardian
 
 import os
 from dotenv import load_dotenv
@@ -95,7 +95,7 @@ def create_app():
 
     # Register the routes from each Blueprint with the app object
     # and give a url prefix to each
-    app.register_blueprint(guardians,   url_prefix='/g')
+    app.register_blueprint(guardian,   url_prefix='/g')
 
     # Don't forget to return the app object
     return app

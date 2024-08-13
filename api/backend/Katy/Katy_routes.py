@@ -7,10 +7,10 @@ import json
 from backend.db_connection import db
 from backend.ml_models.model01 import predict
 
-guardians = Blueprint('guardians', __name__)
+guardian = Blueprint('guardian', __name__)
 
 # Get all required items for a given day
-@guardians.route('/guardians/<c_date>', methods=['GET'])
+@guardian.route('/guardian/<c_date>', methods=['GET'])
 def day_info(c_date):
     cursor = db.get_db().cursor
     the_query = '''
@@ -26,7 +26,7 @@ def day_info(c_date):
     return the_response
 
 # Get a camper's counselor's contact information including phone number and email
-@guardians.route('/guardians/<c_id>', methods=['GET'])
+@guardian.route('/guardian/<c_id>', methods=['GET'])
 def camper_info(c_id):
     cursor = db.get_db().cursor
     the_query = '''
@@ -43,7 +43,7 @@ def camper_info(c_id):
     return the_response
 
 # Insert a medical need into a camper's profile
-@guardians.route('/guardians', methods=['POST'])
+@guardian.route('/guardian', methods=['POST'])
 def med_needs():
     # collecting data from the request object 
     the_data = request.json
