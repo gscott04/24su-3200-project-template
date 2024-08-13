@@ -21,7 +21,7 @@ def day_info(c_date):
     cursor.execute(the_query)
     the_data = cursor.fetchall()
     the_response = make_response(the_data)
-    the_response.status_code = 200
+    the_response.status_code = 200git
     the_response.mimetype = 'application/json'
     return the_response
 
