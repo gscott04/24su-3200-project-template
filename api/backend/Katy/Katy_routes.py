@@ -1,5 +1,5 @@
 ########################################################
-# Sample customers blueprint of endpoints
+# Sample blueprint of endpoints
 # Remove this file if you are not using it in your project
 ########################################################
 from flask import Blueprint, request, jsonify, make_response, current_app
@@ -9,7 +9,12 @@ from backend.ml_models.model01 import predict
 
 guardians = Blueprint('guardians', __name__)
 
+<<<<<<< HEAD
 @guardians.route('/guardians/<c_date>', methods=['GET'])
+=======
+# Get all required items for a given day
+@guardians.route('/guardian/<c_date>', methods=['GET'])
+>>>>>>> ba1d2f1e8406f70b21daffaa3b783aff85ba0537
 def day_info(c_date):
     cursor = db.get_db().cursor
     the_query = '''
@@ -24,7 +29,7 @@ def day_info(c_date):
     the_response.mimetype = 'application/json'
     return the_response
 
-# Get all customers from the DB
+# Get a camper's counselor's contact information including phone number and email
 @guardians.route('/guardian/<c_id>', methods=['GET'])
 def camper_info(c_id):
     cursor = db.get_db().cursor
@@ -41,6 +46,7 @@ def camper_info(c_id):
     the_response.mimetype = 'application/json'
     return the_response
 
+# Insert a medical need into a camper's profile
 @guardians.route('/guardian', methods=['POST'])
 def med_needs():
     # collecting data from the request object 
