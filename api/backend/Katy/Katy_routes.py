@@ -9,7 +9,7 @@ from backend.ml_models.model01 import predict
 
 guardians = Blueprint('guardians', __name__)
 
-@guardians.route('/guardian/<c_date>', methods=['GET'])
+@guardians.route('/guardians/<c_date>', methods=['GET'])
 def day_info(c_date):
     cursor = db.get_db().cursor
     the_query = '''
@@ -26,7 +26,7 @@ def day_info(c_date):
 
 # Get all customers from the DB
 @guardians.route('/guardian/<c_id>', methods=['GET'])
-def day_info(c_id):
+def camper_info(c_id):
     cursor = db.get_db().cursor
     the_query = '''
     SELECT phoneNumber, email
