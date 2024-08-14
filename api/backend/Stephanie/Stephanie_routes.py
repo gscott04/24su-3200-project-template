@@ -12,7 +12,7 @@ app_admin = Blueprint('app_admin', __name__)
 @app_admin.route('/app_admin/<adminID>', methods=['GET']) 
 def get_directors(adminID):
     cursor = db.get_db().cursor()
-    the_query = '''SELECT campDirectorID FROM Admin NATURAL JOIN Location NATURAL JOIN CampLocation NATURAL JOIN Camp Where adminID = adminID;
+    the_query = '''SELECT campDirectorID FROM Admin NATURAL JOIN Location NATURAL JOIN CampLoc NATURAL JOIN Camp Where adminID = adminID;
     '''.format(adminID) 
     cursor.execute(the_query) 
     the_Data = cursor.fetchall()
@@ -25,7 +25,7 @@ def get_directors(adminID):
 @app_admin.route('/app_admin/<campID>', methods=['GET']) 
 def contact_camp(campID): 
     cursor = db.get_db().cursor()
-    the_query = '''SELECT campPhone, campEmail FROM Admin NATURAL JOIN Location NATURAL JOIN CampLocation NATURAL JOIN Camp Where campID = campID;
+    the_query = '''SELECT campPhone, campEmail FROM Admin NATURAL JOIN Location NATURAL JOIN CampLoc NATURAL JOIN Camp Where campID = campID;
     '''.format(campID)
     cursor.execute(the_query) 
     the_Data = cursor.fetchall()
@@ -38,7 +38,7 @@ def contact_camp(campID):
 @app_admin.route('/app_admin/<admin_id>', methods=['GET'])
 def get_contacts(adminID):
     cursor = db.get_db().cursor()
-    the_query = '''SELECT guardianEmail, phoneNumber FROM Admin NATURAL JOIN Location NATURAL JOIN CampLocation NATURAL JOIN Camp NATURAL JOIN Camper NATURAL JOIN Guardian WHERE adminID = adminID Limit 10;
+    the_query = '''SELECT guardianEmail, phoneNumber FROM Admin NATURAL JOIN Location NATURAL JOIN CampLoc NATURAL JOIN Camp NATURAL JOIN Camper NATURAL JOIN Guardian WHERE adminID = adminID Limit 10;
     '''.format(adminID)
     cursor.execute(the_query) 
     the_Data = cursor.fetchall()
