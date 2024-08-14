@@ -263,3 +263,8 @@ INSERT INTO RequiredItems(requiredItems, activityID)
 VALUES ('pool noodle', 1),
        ('bike', 2);
 
+INSERT INTO ScheduleActivity(activityID, scheduleID)
+VALUES (1, 05),
+      (2, 05);
+
+
