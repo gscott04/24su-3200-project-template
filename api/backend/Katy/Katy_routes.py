@@ -12,12 +12,12 @@ guardian = Blueprint('guardian', __name__)
 
 @guardian.route('/guardian/<c_date>', methods=['GET'])
 def day_info(c_date):
-    cursor = db.get_db().cursor
-    the_query = '''
+    cursor = db.get_db().cursor()
+    the_query = f'''
     SELECT date, requiredItems
         FROM DailySchedule NATURAL JOIN ScheduleActivity NATURAL JOIN Activity NATURAL JOIN RequiredItems
-        WHERE date = c_date;
-'''.format(c_date)
+        WHERE date = {c_date};
+    '''
     cursor.execute(the_query)
     the_data = cursor.fetchall()
     the_response = make_response(the_data)
