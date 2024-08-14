@@ -14,9 +14,12 @@ guardian = Blueprint('guardian', __name__)
 def day_info(c_date):
     cursor = db.get_db().cursor()
     the_query = f'''
-    SELECT date, requiredItems
-        FROM DailySchedule NATURAL JOIN ScheduleActivity NATURAL JOIN Activity NATURAL JOIN RequiredItems
-        WHERE date = {c_date};
+    SELECT ds.date, ri.requiredItems
+    FROM DailySchedule ds
+        JOIN ScheduleActivity sa ON ds.scheduleID = sa.scheduleID
+        JOIN Activity a ON sa.activityID = a.activityID
+        JOIN RequiredItems ri ON a.activityID = ri.activityID
+    WHERE ds.date = %s 
     '''
     cursor.execute(the_query)
     the_data = cursor.fetchall()

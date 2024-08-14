@@ -28,7 +28,19 @@ def predict_value(c_ID):
     the_response.mimetype = 'application/json'
     return the_response
 
-
+@camp_counselor.route('/camp_counselor', methods=['DELETE'])
+def delete_schedule(campID, sessionID):
+   cursor = db.get_db().cursor()
+   the_query = '''
+   DELETE FROM DailySchedule 
+   USING DailySchedule
+   WHERE DailySchedule.date = CURRENT_DATE
+				AND DailySchedule.campID = campID
+				AND DailySchedule.sessionID = sessionID;
+                '''		
+   cursor.execute(the_query (campID, sessionID))
+   db.get_db.commit() # commit the deletions to the database 
+   return jsonify({"message": "Daily schedule deleted successfully"}), 200
 
 
 # Get all customers from the DB
