@@ -11,13 +11,14 @@ from backend.db_connection import db
 camp_director = Blueprint('camp_director', __name__)
 
 @camp_director.route('/camp_director', methods=['GET'])
-def understaffed_cabins(): 
+def staff_cabins(): 
     cursor = db.get_db().cursor()
-    the_query = '''SELECT ca.cabinName, ca.cabinID 
-                    FROM Cabin ca 
-                        JOIN Camper cam on ca.cabinID = cam.cabinID 
-                    WHERE ca.StaffID IS NULL 
-                    GROUP BY ca.cabinName, ca.cabinID;
+    the_query = '''
+        SELECT ca.cabinName, ca.cabinID 
+	    FROM Cabin ca 
+	    WHERE ca.StaffID = 8  
+	    GROUP BY ca.cabinName, ca.cabinID; 
+
     '''
     cursor.execute(the_query)
     the_Data = cursor.fetchall()
@@ -42,7 +43,7 @@ def guardian_info(camperID):
     return the_response 
 
 
-@camp_director.route('/camp_director', methods=['GET'])
+@camp_director.route('/camp_director/unpaid', methods=['GET'])
 def unpaid_guardians(): 
     cursor = db.get_db().cursor()
     the_query = '''SELECT g.firstName, g.lastName, g.phone FROM Guardian g WHERE g.paid = FALSE ORDER BY g.lastName ASC;
@@ -54,3 +55,4 @@ def unpaid_guardians():
     the_response.mimetype = 'application/json'
 
     return the_response
+
