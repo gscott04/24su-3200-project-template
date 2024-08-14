@@ -19,7 +19,7 @@ def day_info(c_date):
         JOIN ScheduleActivity sa ON ds.scheduleID = sa.scheduleID
         JOIN Activity a ON sa.activityID = a.activityID
         JOIN RequiredItems ri ON a.activityID = ri.activityID
-    WHERE ds.date = %s;
+    WHERE ds.date = '%s';
     '''
     cursor.execute(the_query, (c_date,))
     the_data = cursor.fetchall()
