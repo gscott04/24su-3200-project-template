@@ -11,9 +11,13 @@ from backend.db_connection import db
 camp_director = Blueprint('camp_director', __name__)
 
 @camp_director.route('/camp_director', methods=['GET'])
-def understafffed_cabins(): 
+def understaffed_cabins(): 
     cursor = db.get_db().cursor()
-    the_query = '''SELECT ca.cabinName, ca.cabinID FROM Cabin ca JOIN Camper cam on ca.cabinID = cam.cabinID WHERE ca.StaffID IS NULL GROUP BY ca.cabinName, ca.cabinID;
+    the_query = '''SELECT ca.cabinName, ca.cabinID 
+                    FROM Cabin ca 
+                        JOIN Camper cam on ca.cabinID = cam.cabinID 
+                    WHERE ca.StaffID IS NULL 
+                    GROUP BY ca.cabinName, ca.cabinID;
     '''
     cursor.execute(the_query)
     the_Data = cursor.fetchall()
