@@ -9,4 +9,4 @@ from datetime import date
 
 SideBarLinks()
 
-st.write("# Find today's daily schedule!")
+st.write("Update Your Activities!")
