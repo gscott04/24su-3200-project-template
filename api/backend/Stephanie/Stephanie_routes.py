@@ -12,7 +12,11 @@ app_admin = Blueprint('app_admin', __name__)
 @app_admin.route('/app_admin/CD/<adminID>', methods=['GET'])
 def get_directors(adminID):
     cursor = db.get_db().cursor()
-    the_query = '''SELECT campDirectorID FROM Admin NATURAL JOIN Location NATURAL JOIN CampLoc NATURAL JOIN Camp Where adminID = %s;
+    the_query = '''SELECT campDirectorID FROM Admin a
+                        JOIN Location l ON a.adminID = l.adminID
+                        JOIN CampLoc cl ON l.locationID = cl.locationID
+                        JOIN Camp c ON cl.campID = c.campID
+                        WHERE a.adminID = %s;
     '''
     cursor.execute(the_query, (adminID,))
     the_Data = cursor.fetchall()
