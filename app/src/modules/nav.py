@@ -43,7 +43,7 @@ def CampDirectorCabinInfo():
     st.sidebar.page_link("pages/61_Camp_Director_Cabin_Info.py", label="Camp Director Information", icon='👤')    
 
 def CampDirectorGuardianInfo():
-    st.sidebar.page_link("pages/62_Camp_Directro_Guardian_Info.py", label="Guardian Information", icon='👤')  
+    st.sidebar.page_link("pages/62_Camp_Director_Guardian_Info.py", label="Guardian Information", icon='👤')  
 
 #### ------------------------ App Admin Role ------------------------
 def AppAdminHomeNav():
