@@ -28,7 +28,7 @@ def staff_cabins():
 
     return the_response 
 
-@camp_director.route('/camp_director<camperID>', methods=['GET'])
+@camp_director.route('/camp_director/<camperID>', methods=['GET'])
 def guardian_info(camperID):
     cursor = db.get_db().cursor() 
     the_query = '''
