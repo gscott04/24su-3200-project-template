@@ -14,10 +14,10 @@ st.write('')
 st.write('')
 st.write('### What would you like to do today?')
 
-if st.button('Predict Value Based on Regression Model', 
+if st.button('Get Cabin Information', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/11_Prediction.py')
+  st.switch_page('pages/61_Camp_Director_Cabin_Info.py')
 
 if st.button('View the Simple API Demo', 
              type='primary',
