@@ -52,7 +52,16 @@ def admin_contacts(adminID):
     '''
     cursor.execute(the_query, (adminID,)) 
     the_Data = cursor.fetchall()
-    the_response = [{"phone": row[0], "email": row[1]} for row in the_Data]
+   
+    the_response = []
+    for row in the_Data:
+        if isinstance(row, dict):
+            the_response.append({"phone": row.get('phone'), "email": row.get('email')})
+        elif isinstance(row, (list, tuple)):
+            the_response.append({"phone": row[0] if len(row) > 0 else None, "email": row[1] if len(row) > 1 else None})
+        else:
+            the_response.append({"phone": row, "email": row})
+    
     return jsonify(the_response), 200
 
 @app_admin.route('/app_admin/<admin_id>', methods=['GET'])
