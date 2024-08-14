@@ -9,7 +9,7 @@ SideBarLinks()
 
 st.write("Find your camps' contact information")
 
-adminID = st.number_input("Enter your ID number 02390", step=1)
+adminID = st.number_input("Enter your ID number 2390", step=1)
 
 if st.button('Get Contact Info', type='primary', use_container_width=True):
     try:

@@ -208,16 +208,16 @@ VALUES (1,'Katy', 'Ito', 'katyito@gmail.com', '508-444-2345', TRUE),
        (2, 'Dan', 'Appleseed', 'danapple@gmail.com', '617-222-6789', TRUE);
 
 INSERT INTO Camp (active, campID, campName, capacity, campDirectorID, phone, email)
-VALUES (1, 34098, 'PrimeTime', 900, 87620,  '908-320-6572', 'primeT@email.com'),
+VALUES (1, 34098, 'PrimeTime', 900, 87620, '908-320-6572', 'primeT@email.com'),
        (0, 56041, 'LagoonLife', 150,  09382, '981-342-8701', 'L.Lagoon@email.com');
 
 INSERT INTO CampSession (sessionID, campID, startDate, endDate, sessionType)
 VALUES (1, 34098, '2024-07-31', '2024-08-14', 1),
-       (2, 34098, '2024-07-15', '2024-07-15', 1);
+       (2, 56041, '2024-07-15', '2024-07-15', 1);
 
 INSERT INTO Staff (staffID, firstName, lastName, role, phoneNumber, email, sessionID, campID)
 VALUES (1, 'Jackie', 'Jones', 'counselor', '508-111-2344', 'jjones@gmail.com', 1, 34098),
-       (2, 'Hailey', 'Potts', 'cook', '453-545-2734', 'hpotts@gmail.com', 2, 34098);
+       (2, 'Hailey', 'Potts', 'cook', '453-545-2734', 'hpotts@gmail.com', 2, 56041);
 
 INSERT INTO Admin
 VALUES (02390, 'Steve', 'Smith', 'ssmith@email.com', '756-322-6456'),
@@ -253,7 +253,7 @@ VALUES (1, 1),
 
 INSERT INTO DailySchedule (scheduleID, sessionID, campID, date, time)
 VALUES (03, 1, 34098, '2015-08-08', '11:05:00'),
-       (05, 2, 34098, '2016-07-29', '12:35:00');
+       (05, 2, 56041, '2016-07-29', '12:35:00');
 
 INSERT INTO Activity (activityID, name, description)
 VALUES (1, 'Swimming', 'Pool 3'),
