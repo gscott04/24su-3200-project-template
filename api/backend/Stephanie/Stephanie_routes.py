@@ -64,11 +64,19 @@ def admin_contacts(adminID):
     
     return jsonify(the_response), 200
 
-@app_admin.route('/app_admin/<admin_id>', methods=['GET'])
+@app_admin.route('/app_admin/<adminID>', methods=['GET'])
 def get_contacts(adminID):
     cursor = db.get_db().cursor()
-    the_query = '''SELECT guardianEmail, phoneNumber FROM Admin NATURAL JOIN Location NATURAL JOIN CampLoc NATURAL JOIN Camp NATURAL JOIN Camper NATURAL JOIN Guardian WHERE adminID = adminID Limit 10;
-    '''.format(adminID)
+    the_query = f'''SELECT g.email, g.phone
+FROM Admin a
+    JOIN Location l ON a.adminID = l.adminID
+    JOIN CampLoc cl ON l.locationID = cl.locationID
+    JOIN Camp c ON cl.campID = c.campID
+    JOIN Camper cm ON c.campID = cm.campID
+    JOIN Guardian g ON cm.guardianID = g.guardianID
+WHERE a.adminID = {adminID}
+LIMIT 10;
+    '''
     cursor.execute(the_query) 
     the_Data = cursor.fetchall()
     the_response = make_response(the_Data)

@@ -7,7 +7,7 @@ from modules.nav import SideBarLinks
 
 SideBarLinks()
 
-st.write("Find your camps' contact information")
+st.write("Find a guardian's contact information")
 
 adminID = st.number_input("Enter your ID number 2390", step=1)
 
@@ -22,20 +22,20 @@ if st.button('Get Contact Info', type='primary', use_container_width=True):
         
         if response.status_code == 200:
             try:
-                camp_contact = response.json()
-                st.write(f"Contact info for your camps {adminID}")
-                if camp_contact:
-                    for item in camp_contact:
-                        st.write(f"Camp Phone: {item['phone']}, Camp Email: {item['email']}")
+                guardian_contact = response.json()
+                st.write(f"Contact info for guardian {adminID}")
+                if guardian_contact:
+                    for item in guardian_contact:
+                        st.write(f"Guardian Phone: {item['phone']}, Guardian Email: {item['email']}")
                 else:
-                    st.write("No contact information available for your camps.")
+                    st.write(f"No contact information available for your camps.")
             except ValueError as json_error:
                 st.error(f"Failed to parse JSON response. Error: {str(json_error)}")
-                st.write("Response Content:")
+                st.write(f"Response Content:")
                 st.code(response.text)
         else:
             st.error(f"Failed to fetch contact info. Status code: {response.status_code}")
-            st.write("Response Content:")
+            st.write(f"Response Content:")
             st.code(response.text)
     except requests.RequestException as e:
         logger.error(f"Error fetching contact info: {str(e)}")
