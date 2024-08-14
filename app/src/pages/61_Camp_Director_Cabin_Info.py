@@ -22,8 +22,10 @@ if st.button('Get Cabin Info', type='primary', use_container_width=True):
             if cabin_data:
                 for item in cabin_data:
                     if 'cabinID' in item:
+                        # check if there is no Cabin Name (Camps are not required to name Cabins)
                         if item['cabinName'] is None:
                             st.write(f"Cabin ID: {item['cabinID']}")
+                        # if there is a Cabin Name, return it with the Cabin ID
                         if item['cabinName'] is not None:
                             st.write(f"Cabin Name: {item['cabinName']}, Cabin ID: {item['cabinID']}")
                     else:
