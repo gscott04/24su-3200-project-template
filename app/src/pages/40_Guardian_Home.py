@@ -14,11 +14,20 @@ st.write('')
 st.write('')
 st.write('### What would you like to do today?')
 
+if st.button("Enter medical information",
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/41_Guardian_Test.py')
+
 if st.button('Check Daily Schedule', 
              type='primary',
              use_container_width=True):
   st.switch_page('pages/42_Guardian_DailySchedule.py')
 
+if st.button("Reach out to a counselor",
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/43_Guardian_Contact.py')  
 
 if st.button('Predict Value Based on Regression Model', 
              type='primary',
@@ -30,12 +39,3 @@ if st.button('View the Simple API Demo',
              use_container_width=True):
   st.switch_page('pages/12_API_Test.py')
 
-if st.button("Enter medical information",
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/41_Guardian_Test.py')
-
-if st.button("Reach out to a counselor",
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/43_Guardian_Contact.py')  

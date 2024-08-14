@@ -44,7 +44,7 @@ def GuardianTestNav():
 def GuardianScheduleNav():
     st.sidebar.page_link("pages/42_Guardian_DailySchedule.py", label="Check Daily Schedule", icon='🗓️')
 
-def GuardianContact():
+def GuardianContactNav():
     st.sidebar.page_link("pages/43_Guardian_Contact.py", label="Test", icon='🌺')
 
 
@@ -92,6 +92,7 @@ def SideBarLinks(show_home=False):
         if st.session_state['role'] == 'guardian':
             GuardianHomeNav()
             GuardianTestNav()
+            GuardianContactNav()
             GuardianScheduleNav()
 
         # Show World Bank Link and Map Demo Link if the user is a political strategy advisor role.
@@ -110,13 +111,7 @@ def SideBarLinks(show_home=False):
         if st.session_state['role'] == 'administrator':
             AdminPageNav()
 
-        if st.session_state['role'] == 'guardian':
-            GuardianHomeNav()
-            GuardianTestNav()
-            GuardianScheduleNav()    
-            GuardianContact()
             
-
         if st.session_state['role'] == 'camp_counselor':
             CampCounselorHomeNav()      
 
