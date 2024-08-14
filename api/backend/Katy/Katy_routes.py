@@ -28,13 +28,13 @@ def day_info(c_date):
 # Get all customers from the DB
 @guardian.route('/guardian/<c_id>', methods=['GET'])
 def camper_info(c_id):
-    cursor = db.get_db().cursor
-    the_query = '''
+    cursor = db.get_db().cursor()
+    the_query = f'''
     SELECT phoneNumber, email
         FROM Camper NATURAL JOIN Cabin NATURAL JOIN Staff
-        WHERE Camper.camperID = c_id;
+        WHERE Camper.camperID = {c_id};
 
-'''.format(c_id)
+'''
     cursor.execute(the_query)
     the_data = cursor.fetchall()
     the_response = make_response(the_data)
