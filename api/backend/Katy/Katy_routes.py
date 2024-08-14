@@ -10,7 +10,7 @@ from backend.ml_models.model01 import predict
 
 guardian = Blueprint('guardian', __name__)
 
-@guardian.route('/guardian/{c_date}', methods=['GET'])
+@guardian.route('/guardian/<c_date>', methods=['GET'])
 def day_info(c_date):
     cursor = db.get_db().cursor()
     the_query = '''
