@@ -22,7 +22,7 @@ sessionID = st.text_input("Enter the session ID:", "")
 # Date to be deleted (fixed for now)
 date_to_delete = "7/27/2024"
 
-if st.button('Delete Schedule', type ="primary", use_content_width=True):
+if st.button('Delete Schedule', type ="primary", use_container_width=True):
     # Construct the DELETE request URL 
     delete_url = f'http://api:4000/c/camp_counselor/{campID}/{sessionID}'
     # Send delete request 
