@@ -9,7 +9,7 @@ from backend.ml_models.model01 import predict
 
 camp_counselor = Blueprint('camp_counselor', __name__)
 
-@camp_counselor.route('/activity/<c_ID>', methods=['GET'])
+@camp_counselor.route('/camp_counselor/<c_ID>', methods=['GET'])
 def predict_value(c_ID):
     cursor = db.get_db().cursor()
     the_query = f'''
@@ -28,67 +28,39 @@ def predict_value(c_ID):
     the_response.mimetype = 'application/json'
     return the_response
 
-@camp_counselor.route('/camp_counselor', methods=['DELETE'])
+@camp_counselor.route('/camp_counselor/<campID>/<sessionID>', methods=['DELETE'])
 def delete_schedule(campID, sessionID):
    cursor = db.get_db().cursor()
-   the_query = '''
+   the_query = f'''
    DELETE FROM DailySchedule 
    USING DailySchedule
-   WHERE DailySchedule.date = CURRENT_DATE
-				AND DailySchedule.campID = campID
-				AND DailySchedule.sessionID = sessionID;
+   WHERE DailySchedule.date = 7/27/2024
+				AND DailySchedule.campID = {campID}
+				AND DailySchedule.sessionID = {sessionID};
                 '''		
    cursor.execute(the_query (campID, sessionID))
    db.get_db.commit() # commit the deletions to the database 
    return jsonify({"message": "Daily schedule deleted successfully"}), 200
 
 
-# Get all customers from the DB
-@customers.route('/customers', methods=['GET'])
-def get_customers():
-    current_app.logger.info('customer_routes.py: GET /customers')
-    cursor = db.get_db().cursor()
-    cursor.execute('select id, company, last_name,\
-        first_name, job_title, business_phone from customers')
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-    return the_response
-
-@customers.route('/customers', methods=['PUT'])
-def update_customer():
-    current_app.logger.info('PUT /customers route')
-    cust_info = request.json
+@camp_counselor.route('/camp_counselor', methods=['PUT'])
+def update_activity():
+    current_app.logger.info('PUT /camp_counselor route')
+    camp_info = request.json
     # current_app.logger.info(cust_info)
-    cust_id = cust_info['id']
-    first = cust_info['first_name']
-    last = cust_info['last_name']
-    company = cust_info['company']
+    camp_info = camp_info['description']
 
-    query = 'UPDATE customers SET first_name = %s, last_name = %s, company = %s where id = %s'
-    data = (first, last, company, cust_id)
+    query = '''UPDATE Activity
+    SET Activity.description = '%s'
+    FROM Activity
+    JOIN ScheduleActivity ON Activity.activityId = ScheduleActivity.activityId
+    JOIN DailySchedule ON ScheduleActivity.scheduleId = DailySchedule.scheduleId
+    WHERE DailySchedule.date = 8/5/2024
+    AND DailySchedule.campID = 16
+    AND DailySchedule.sessionID = 24;
+'''
+    data = (camp_info)
     cursor = db.get_db().cursor()
-    r = cursor.execute(query, data)
+    cursor.execute(query, data)
     db.get_db().commit()
-    return 'customer updated!'
-
-# Get customer detail for customer with particular userID
-@customers.route('/customers/<userID>', methods=['GET'])
-def get_customer(userID):
-    current_app.logger.info('GET /customers/<userID> route')
-    cursor = db.get_db().cursor()
-    cursor.execute('select id, first_name, last_name from customers where id = {0}'.format(userID))
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-    return the_response
+    return 'activity updated!'

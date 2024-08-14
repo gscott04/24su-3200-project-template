@@ -11,20 +11,23 @@ SideBarLinks()
 
 st.write("# Find today's daily schedule!")
 
-c_date = st.date_input("Select a date between 7/22/24 and 8/31/24 or 2016/07/09", value=date.today())
+c_date = st.date_input("Select a date between 7/22/24 and 8/31/24 or 2016/07/29", value=date.today())
 
 if st.button('Get Schedule', type='primary', use_container_width=True):
     
     try:
-        # GET request to Flask route
-        response = requests.get('http://api:4000/g/guardian/{c_date}')
+        # Format the date as a string in the desired format (YYYY-MM-DD)
+        formatted_date = c_date.strftime('%Y-%m-%d')
+        
+        # GET request to Flask route with the formatted date
+        response = requests.get(f'http://api:4000/guardian/{formatted_date}')
         
         if response.status_code == 200:
             # If the request is successful, parse the JSON response
             schedule_data = response.json()
             
             # Display the schedule data
-            st.write("Items required for", c_date)
+            st.write(f"Items required for {formatted_date}:")
             for item in schedule_data:
                 st.write(f"Date: {item['date']}, Required Items: {item['requiredItems']}")
         else:

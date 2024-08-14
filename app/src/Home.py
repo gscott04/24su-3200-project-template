@@ -62,7 +62,7 @@ if st.button('Act as Jackie Saturn, a Camp Counselor',
         st.session_state['authenticated'] = True
         st.session_state['role'] = 'camp_counselor'
         st.session_state['first_name'] = 'Jackie'
-        st.switch_page('pages/50_Camp_counselor_Home.py')
+        st.switch_page('pages/50_Camp_Counselor_Home.py')
 
 if st.button('Act as Chad Cheese, a Camp Director',
         type = 'primary',
