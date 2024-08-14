@@ -41,7 +41,7 @@ def get_directors(adminID):
     except Exception as e:
         return jsonify({"error": "An internal server error occurred"}), 500
     
-@app_admin.route('/app_admin/<adminID>', methods=['GET']) 
+@app_admin.route('/app_admin/AC/<adminID>', methods=['GET']) 
 def admin_contacts(adminID): 
     cursor = db.get_db().cursor()
     the_query = '''SELECT c.phone, c.email, a.adminID FROM Admin a
