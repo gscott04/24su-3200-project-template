@@ -1,3 +1,4 @@
+USE summersync
 insert into CampSession (sessionID, campID, startDate, endDate, sessionType) values (1, '15', '7/9/2024', '8/25/2024', false);
 insert into CampSession (sessionID, campID, startDate, endDate, sessionType) values (2, '22', '7/10/2024', '8/5/2024', true);
 insert into CampSession (sessionID, campID, startDate, endDate, sessionType) values (3, '17', '7/11/2024', '8/24/2024', false);

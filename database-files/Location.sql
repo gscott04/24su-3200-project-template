@@ -1,3 +1,4 @@
+USE summersync
 insert into Location (locationID, region, territory, adminID) values (1, 'Minnesota', 'Minneapolis', '22');
 insert into Location (locationID, region, territory, adminID) values (2, 'Connecticut', 'New Haven', '32');
 insert into Location (locationID, region, territory, adminID) values (3, 'Florida', 'Homestead', '11');

@@ -1,3 +1,4 @@
+USE summersync
 insert into DailySchedule (scheduleID, date, time, campID, sessionID) values (1, '8/22/2024', '7:19 PM', '32', '20');
 insert into DailySchedule (scheduleID, date, time, campID, sessionID) values (2, '8/4/2024', '10:55 AM', '1', '9');
 insert into DailySchedule (scheduleID, date, time, campID, sessionID) values (3, '8/21/2024', '7:57 PM', '25', '1');

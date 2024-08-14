@@ -1,3 +1,4 @@
+USE SummerSync
 insert into Activity (activityID, name, description) values (1, 'Hiking', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis.');
 insert into Activity (activityID, name, description) values (2, 'Archery', 'Nullam porttitor lacus at turpis.');
 insert into Activity (activityID, name, description) values (3, 'Swimming', 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.');

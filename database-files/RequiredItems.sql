@@ -1,3 +1,4 @@
+USE summersync
 insert into RequiredItems (requiredItems, activityID) values ('Walking stick', '32');
 insert into RequiredItems (requiredItems, activityID) values ('Sunglasses sunscreen hat', '1');
 insert into RequiredItems (requiredItems, activityID) values ('Playing cards board game', '26');

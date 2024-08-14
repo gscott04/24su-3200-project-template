@@ -1,3 +1,4 @@
+USE summersync
 insert into CampLoc (campID, locationID) values ('11', '31');
 insert into CampLoc (campID, locationID) values ('31', '4');
 insert into CampLoc (campID, locationID) values ('8', '29');

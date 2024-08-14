@@ -1,3 +1,4 @@
+USE summersync
 insert into MedicalInfo (medID, type) values (1, 'Peanut allergy');
 insert into MedicalInfo (medID, type) values (2, 'Tree nut allergy');
 insert into MedicalInfo (medID, type) values (3, 'Dairy allergy');

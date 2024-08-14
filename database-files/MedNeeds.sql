@@ -1,3 +1,4 @@
+USE summersync
 insert into MedNeeds (medID, camperID) values ('36', '13');
 insert into MedNeeds (medID, camperID) values ('9', '19');
 insert into MedNeeds (medID, camperID) values ('7', '15');

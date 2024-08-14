@@ -1,3 +1,4 @@
+USE summersync
 insert into Guardian (guardianID, firstName, lastName, email, phone, paid) values (1, 'Norry', 'Walisiak', 'nwalisiak0@example.com', '154-669-8535', false);
 insert into Guardian (guardianID, firstName, lastName, email, phone, paid) values (2, 'Cello', 'Matijevic', 'cmatijevic1@example.com', '175-692-0136', false);
 insert into Guardian (guardianID, firstName, lastName, email, phone, paid) values (3, 'Tabbie', 'Bestman', 'tbestman2@example.com', '767-650-3379', false);
