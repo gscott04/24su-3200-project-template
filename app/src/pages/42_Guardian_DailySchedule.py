@@ -6,11 +6,12 @@ from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
 from datetime import date
 
+
 SideBarLinks()
 
 st.write("# Find today's daily schedule!")
 
-c_date = st.date_input("Select a date", value=date.today())
+c_date = st.date_input("Select a date between 7/22/24 and 8/31/24", value=date.today())
 
 if st.button('Get Schedule', type='primary', use_container_width=True):
     
