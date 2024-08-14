@@ -19,10 +19,14 @@ def day_info(c_date):
         JOIN ScheduleActivity sa ON ds.scheduleID = sa.scheduleID
         JOIN Activity a ON sa.activityID = a.activityID
         JOIN RequiredItems ri ON a.activityID = ri.activityID
-    WHERE ds.date = '%s';
+    WHERE ds.date = %s;
     '''
     cursor.execute(the_query, (c_date,))
     the_data = cursor.fetchall()
+
+    if not the_data:
+        return make_response(jsonify({"error": "No data found for this date"}), 404)
+    
     the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
