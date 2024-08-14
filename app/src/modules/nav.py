@@ -42,6 +42,9 @@ def CampDirectorHomeNav():
 def CampDirectorCabinInfo():
     st.sidebar.page_link("pages/61_Camp_Director_Cabin_Info.py", label="Camp Director Information", icon='👤')    
 
+def CampDirectorGuardianInfo():
+    st.sidebar.page_link("pages/62_Camp_Directro_Guardian_Info.py", label="Guardian Information", icon='👤')  
+
 #### ------------------------ App Admin Role ------------------------
 def AppAdminHomeNav():
     st.sidebar.page_link("pages/70_App_Admin_Home.py", label="App Admin Home", icon='👤')
@@ -86,6 +89,7 @@ def SideBarLinks(show_home=False):
         if st.session_state['role'] == 'camp_director':
             CampDirectorHomeNav()  
             CampDirectorCabinInfo()
+            CampDirectorGuardianInfo()
 
         if st.session_state['role'] == 'app_admin':
             AppAdminHomeNav()   
