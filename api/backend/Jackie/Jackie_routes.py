@@ -9,15 +9,21 @@ from backend.ml_models.model01 import predict
 
 camp_counselor = Blueprint('camp_counselor', __name__)
 
-@camp_counselor.route('/prediction/<var01>/<var02>', methods=['GET'])
-def predict_value(var01, var02):
-    current_app.logger.info(f'var01 = {var01}')
-    current_app.logger.info(f'var02 = {var02}')
-
-    returnVal = predict(var01, var02)
-    return_dict = {'result': returnVal}
-
-    the_response = make_response(jsonify(return_dict))
+@camp_counselor.route('/activity/<c_ID>', methods=['GET'])
+def predict_value(c_ID):
+    cursor = db.get_db().cursor()
+    the_query = f'''
+    SELECT s.firstName, s.lastName, s.phoneNumber, s.email
+    FROM Staff s
+    JOIN CampSession cs ON s.sessionID = cs.sessionID
+    WHERE s.campID = {c_ID} 
+    AND cs.startDate <= 7/10/2024 
+    AND cs.endDate >= 8/5/2024;
+    ;
+    '''
+    cursor.execute(the_query)
+    the_data = cursor.fetchall()
+    the_response = make_response(the_data)
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
