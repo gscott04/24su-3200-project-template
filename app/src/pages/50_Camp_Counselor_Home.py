@@ -14,17 +14,17 @@ st.write('')
 st.write('')
 st.write('### What would you like to do today?')
 
-if st.button('Predict Value Based on Regression Model', 
+if st.button('Get Staff Information', 
              type='primary',
              use_container_width=True):
   st.switch_page('pages/51_Camp_Counselor_Staff_Info.py')
 
-if st.button('View the Simple API Demo', 
+if st.button('Delete Schedule Information', 
              type='primary',
              use_container_width=True):
   st.switch_page('pages/52_Camp_Counselor_Delete.py')
 
-if st.button("View Classification Demo",
+if st.button("Update Actvity Description",
              type='primary',
              use_container_width=True):
   st.switch_page('pages/53_Camp_Counselor_Update_Activity.py')
