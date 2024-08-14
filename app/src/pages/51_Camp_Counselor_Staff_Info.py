@@ -20,7 +20,7 @@ campID = st.number_input("Enter your Camp ID number:", step=1, key='campID')
 # Button to trigger the information retrieval
 if st.button('Get Staff Info'):
     # API URL endpoint
-    url = f'http://api:4000/camp_counselor/{staffID}'
+    url = f'http://api:4000/c/camp_counselor/{staffID}'
     
     # Make a request to the API
     try:

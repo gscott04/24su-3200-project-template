@@ -24,7 +24,7 @@ if st.button('Get a Guardians Contact Info',
              use_container_width=True):
   st.switch_page('pages/62_Camp_Director_Guardian_Info.py')
 
-if st.button("View Classification Demo",
+if st.button("Find Guardians Missing Payments",
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/13_Classification.py')
+  st.switch_page('pages/63_Camp_Director_Guardian_Paid.py')
