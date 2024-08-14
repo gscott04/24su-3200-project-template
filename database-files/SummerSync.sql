@@ -244,7 +244,7 @@ VALUES (401, 501),
        (402, 502);
 
 INSERT INTO Camper (camperID, firstName, lastName, campID, DOB, guardianID, bedID, cabinID, staffID)
-VALUES (1, 'John', 'Doe', 34098, '2010-06-15', 1, 401, 501, 1),
+VALUES (1, 'John', 'Doe',34098 , '2010-06-15', 1, 401, 501, 1),
        (2, 'Jane', 'Smith', 34098, '2011-04-20', 2, 402, 502, 1);
 
 INSERT INTO MedNeeds(medID, camperID)
