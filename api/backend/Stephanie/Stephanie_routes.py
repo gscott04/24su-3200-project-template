@@ -9,7 +9,7 @@ from backend.ml_models.model01 import predict
 
 app_admin = Blueprint('app_admin', __name__)
 
-@app_admin.route('/app_admin/<adminID>', methods=['GET'])
+@app_admin.route('/app_admin/CD/<adminID>', methods=['GET'])
 def get_directors(adminID):
     cursor = db.get_db().cursor()
     the_query = '''SELECT campDirectorID FROM Admin NATURAL JOIN Location NATURAL JOIN CampLoc NATURAL JOIN Camp Where adminID = %s;
