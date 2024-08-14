@@ -25,11 +25,11 @@ def get_directors(adminID):
 @app_admin.route('/app_admin/<adminID>', methods=['GET']) 
 def admin_contacts(adminID): 
     cursor = db.get_db().cursor()
-    the_query = '''SELECT phone, email FROM Admin 
-                        NATURAL JOIN Location 
-                        NATURAL JOIN CampLoc 
-                        NATURAL JOIN Camp 
-                        WHERE adminID = %s;
+    the_query = '''SELECT c.phone, c.email, a.adminID FROM Admin a
+                        JOIN Location l ON a.adminID = l.adminID
+                        JOIN CampLoc cl ON l.locationID = cl.locationID
+                        JOIN Camp c ON cl.campID = c.campID 
+                        WHERE a.adminID = %s;
     '''
     cursor.execute(the_query, (adminID,)) 
     the_Data = cursor.fetchall()

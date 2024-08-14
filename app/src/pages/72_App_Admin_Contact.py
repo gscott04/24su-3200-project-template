@@ -23,7 +23,7 @@ if st.button('Get Contact Info', type='primary', use_container_width=True):
         if response.status_code == 200:
             try:
                 camp_contact = response.json()
-                st.write(f"Contact info for Camp {adminID}")
+                st.write(f"Contact info for your camps {adminID}")
                 if camp_contact:
                     for item in camp_contact:
                         st.write(f"Camp Phone: {item['phone']}, Camp Email: {item['email']}")

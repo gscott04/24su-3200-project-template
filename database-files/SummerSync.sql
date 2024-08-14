@@ -220,7 +220,7 @@ VALUES (1, 'Jackie', 'Jones', 'counselor', '508-111-2344', 'jjones@gmail.com', 1
        (2, 'Hailey', 'Potts', 'cook', '453-545-2734', 'hpotts@gmail.com', 2, 56041);
 
 INSERT INTO Admin
-VALUES (02390, 'Steve', 'Smith', 'ssmith@email.com', '756-322-6456'),
+VALUES (2390, 'Steve', 'Smith', 'ssmith@email.com', '756-322-6456'),
        (8673509, 'Sashana', 'Bean', 'sbean@email.com', '345-624-1987');
 
 INSERT INTO Location (region, territory, locationID, adminID)
