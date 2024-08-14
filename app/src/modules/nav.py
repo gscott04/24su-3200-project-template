@@ -20,7 +20,7 @@ def GuardianScheduleNav():
     st.sidebar.page_link("pages/42_Guardian_DailySchedule.py", label="Check Daily Schedule", icon='🗓️')
 
 def GuardianContactNav():
-    st.sidebar.page_link("pages/43_Guardian_Contact.py", label="Get your child's counselor's contact info", icon='📲')
+    st.sidebar.page_link("pages/43_Guardian_contact.py", label="Get your child's counselor's contact info", icon='📲')
     
 #### ------------------------ Camp Counselor Role ------------------------
 def CampCounselorHomeNav():

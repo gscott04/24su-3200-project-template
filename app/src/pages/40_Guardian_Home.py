@@ -27,7 +27,7 @@ if st.button('Check Daily Schedule',
 if st.button("Reach out to a counselor",
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/43_Guardian_Contact.py')  
+  st.switch_page('pages/43_Guardian_contact.py')  
 
 if st.button('Predict Value Based on Regression Model', 
              type='primary',
