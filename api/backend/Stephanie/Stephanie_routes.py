@@ -29,7 +29,7 @@ def admin_contacts(adminID):
                         NATURAL JOIN Location 
                         NATURAL JOIN CampLoc 
                         NATURAL JOIN Camp 
-                        WHERE campID = %s;
+                        WHERE adminID = %s;
     '''
     cursor.execute(the_query, (adminID,)) 
     the_Data = cursor.fetchall()

@@ -264,7 +264,7 @@ VALUES ('pool noodle', 1),
        ('bike', 2);
 
 INSERT INTO ScheduleActivity(activityID, scheduleID)
-VALUES (1, 05),
+VALUES (1, 03),
       (2, 05);
 
 
