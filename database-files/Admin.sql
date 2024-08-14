@@ -1,3 +1,4 @@
+USE summersync
 insert into Admin (adminID, firstName, lastName, email, phone) values (1, 'Eduardo', 'Spain-Gower', 'espaingower0@summersync.com', '230-255-0111');
 insert into Admin (adminID, firstName, lastName, email, phone) values (2, 'Judas', 'Boraston', 'jboraston1@summersync.com', '554-357-8666');
 insert into Admin (adminID, firstName, lastName, email, phone) values (3, 'Paulo', 'Cruddas', 'pcruddas2@summersync.com', '630-189-6718');

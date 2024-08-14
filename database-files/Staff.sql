@@ -1,3 +1,4 @@
+USE summersync
 insert into Staff (staffID, firstName, lastName, role, phoneNumber, email, sessionID, campID) values (1, 'Krishna', 'Peckham', 'Camp Director', '879-805-9007', 'kpeckham0@camp.com', '38', '40');
 insert into Staff (staffID, firstName, lastName, role, phoneNumber, email, sessionID, campID) values (2, 'Jacenta', 'Ruddock', 'Nature Guide', '212-146-8254', 'jruddock1@camp.com', '10', '13');
 insert into Staff (staffID, firstName, lastName, role, phoneNumber, email, sessionID, campID) values (3, 'Kevina', 'McKeefry', 'Activity Leader', '709-152-1460', 'kmckeefry2@camp.com', '8', '19');

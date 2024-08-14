@@ -1,3 +1,4 @@
+USE summersync
 insert into ScheduleActivity (activityID, scheduleID) values ('23', '28');
 insert into ScheduleActivity (activityID, scheduleID) values ('25', '18');
 insert into ScheduleActivity (activityID, scheduleID) values ('12', '31');

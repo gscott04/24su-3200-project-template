@@ -23,7 +23,7 @@ def understafffed_cabins():
 
     return the_response 
 
-@camp_director.route('/camp_director/<camperID>', methods=['GET'])
+@camp_director.route('/camp_director<camperID>', methods=['GET'])
 def guardian_info(camperID):
     cursor = db.get_db().cursor() 
     the_query = '''
@@ -38,7 +38,7 @@ def guardian_info(camperID):
     return the_response 
 
 
-@camp_director.route('camp_director/', methods=['GET'])
+@camp_director.route('/camp_director', methods=['GET'])
 def unpaid_guardians(): 
     cursor = db.get_db().cursor()
     the_query = '''SELECT g.firstName, g.lastName, g.phone FROM Guardian g WHERE g.paid = FALSE ORDER BY g.lastName ASC;

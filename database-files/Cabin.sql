@@ -1,3 +1,4 @@
+USE summersync
 insert into Cabin (cabinID, cabinName, staffID, capacity) values (1, 'Red-billed buffalo weaver', '1', 6);
 insert into Cabin (cabinID, cabinName, staffID, capacity) values (2, 'Elephant, asian', '33', 6);
 insert into Cabin (cabinID, cabinName, staffID, capacity) values (3, 'Goliath heron', '40', 6);

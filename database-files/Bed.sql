@@ -1,3 +1,4 @@
+USE summersync
 insert into Bed (bedID, cabinID) values (1, '9');
 insert into Bed (bedID, cabinID) values (2, '33');
 insert into Bed (bedID, cabinID) values (3, '31');

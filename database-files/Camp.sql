@@ -1,3 +1,4 @@
+USE summersync
 insert into Camp (campID, campName, capacity, campDirectorID, active, description, phone, email) values (1, 'Tropical Ladies''-tresses', 990, 1, true, 'In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.', '892-747-4424', 'timesson0@camp.org');
 insert into Camp (campID, campName, capacity, campDirectorID, active, description, phone, email) values (2, 'Dense Logwood', 581, 2, true, 'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.', '420-208-7314', 'mchurchill1@camp.org');
 insert into Camp (campID, campName, capacity, campDirectorID, active, description, phone, email) values (3, 'Palmer''s Groundcherry', 514, 3, false, 'Duis consequat dui nec nisi volutpat eleifend.', '858-494-7631', 'cdomnick2@camp.org');

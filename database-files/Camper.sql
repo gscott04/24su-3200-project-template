@@ -1,3 +1,4 @@
+USE summersync
 insert into Camper (camperID, firstName, lastName, campID, DOB, guardianID, bedID, cabinID, staffID) values (1, 'Alyda', 'Stodit', '21', '2011-08-20', '10', '4', '35', '28');
 insert into Camper (camperID, firstName, lastName, campID, DOB, guardianID, bedID, cabinID, staffID) values (2, 'Flemming', 'Houldin', '2', '2014-09-27', '22', '24', '8', '1');
 insert into Camper (camperID, firstName, lastName, campID, DOB, guardianID, bedID, cabinID, staffID) values (3, 'Mickie', 'Caen', '24', '2015-07-17', '20', '36', '33', '11');
