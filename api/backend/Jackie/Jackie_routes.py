@@ -63,4 +63,4 @@ def update_activity():
     cursor = db.get_db().cursor()
     cursor.execute(query, data)
     db.get_db().commit()
-    return 'customer updated!'
+    return 'activity updated!'
