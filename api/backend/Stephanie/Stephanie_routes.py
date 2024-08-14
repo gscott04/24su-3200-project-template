@@ -9,31 +9,32 @@ from backend.ml_models.model01 import predict
 
 app_admin = Blueprint('app_admin', __name__)
 
-@app_admin.route('/app_admin/<adminID>', methods=['GET']) 
+@app_admin.route('/app_admin/<adminID>', methods=['GET'])
 def get_directors(adminID):
     cursor = db.get_db().cursor()
-    the_query = '''SELECT campDirectorID FROM Admin NATURAL JOIN Location NATURAL JOIN CampLoc NATURAL JOIN Camp Where adminID = adminID;
-    '''.format(adminID) 
-    cursor.execute(the_query) 
+    the_query = '''SELECT campDirectorID FROM Admin NATURAL JOIN Location NATURAL JOIN CampLoc NATURAL JOIN Camp Where adminID = %s;
+    '''
+    cursor.execute(the_query, (adminID,))
     the_Data = cursor.fetchall()
-    the_response = make_response(the_Data)
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
+    
+    # Convert the data to a list of dictionaries
+    the_response = [{"campDirectorID": row[0]} for row in the_Data]
+    
+    return jsonify(the_response), 200
 
-    return the_response 
-
-@app_admin.route('/app_admin/<campID>', methods=['GET']) 
-def contact_camp(campID): 
+@app_admin.route('/app_admin/<adminID>', methods=['GET']) 
+def admin_contacts(adminID): 
     cursor = db.get_db().cursor()
-    the_query = '''SELECT campPhone, campEmail FROM Admin NATURAL JOIN Location NATURAL JOIN CampLoc NATURAL JOIN Camp Where campID = campID;
-    '''.format(campID)
-    cursor.execute(the_query) 
+    the_query = '''SELECT phone, email FROM Admin 
+                        NATURAL JOIN Location 
+                        NATURAL JOIN CampLoc 
+                        NATURAL JOIN Camp 
+                        WHERE campID = %s;
+    '''
+    cursor.execute(the_query, (adminID,)) 
     the_Data = cursor.fetchall()
-    the_response = make_response(the_Data)
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-
-    return the_response 
+    the_response = [{"phone": row[0], "email": row[1]} for row in the_Data]
+    return jsonify(the_response), 200
 
 @app_admin.route('/app_admin/<admin_id>', methods=['GET'])
 def get_contacts(adminID):
