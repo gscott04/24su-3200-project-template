@@ -26,6 +26,15 @@ def GuardianContactNav():
 def CampCounselorHomeNav():
     st.sidebar.page_link("pages/50_Camp_Counselor_Home.py", label="Camp Counselor Home", icon='👤')
 
+def CampCounselorStaff():
+    st.sidebar.page_link("pages/51_Camp_Counselor_Staff_Info.py", label="Camp Counselor find staff", icon='👤')
+
+def CampCounselorStaff():
+    st.sidebar.page_link("pages/52_Camp_Counselor_Delete.py", label="Camp Counselor delete", icon='👤')
+
+def CampCounselorStaff():
+    st.sidebar.page_link("pages/53_Camp_Counselor_Update_Activity.py", label="Camp Counselor activity change", icon='👤')
+
 #### ------------------------ Camp Director Role ------------------------
 def CampDirectorHomeNav():
     st.sidebar.page_link("pages/60_Camp_Director_Home.py", label="Camp Director Home", icon='👤')
