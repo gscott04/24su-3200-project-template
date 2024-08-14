@@ -19,7 +19,7 @@ if st.button('Get Schedule', type='primary', use_container_width=True):
         formatted_date = c_date.strftime('%Y-%m-%d')
         
         # GET request to Flask route with the formatted date
-        response = requests.get(f'http://localhost:4000/guardian/{formatted_date}')
+        response = requests.get(f'http://api:4000/g/guardian/{formatted_date}')
         
         if response.status_code == 200:
             # If the request is successful, parse the JSON response
