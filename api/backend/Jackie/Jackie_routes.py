@@ -29,6 +29,8 @@ def predict_value(c_ID):
     return the_response
 
 
+
+
 # Get all customers from the DB
 @customers.route('/customers', methods=['GET'])
 def get_customers():
