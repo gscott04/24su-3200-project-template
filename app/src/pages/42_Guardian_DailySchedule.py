@@ -13,12 +13,10 @@ st.write("# Find today's daily schedule!")
 c_date = st.date_input("Select a date", value=date.today())
 
 if st.button('Get Schedule', type='primary', use_container_width=True):
-    # Convert the date to string format (assuming your Flask route expects YYYY-MM-DD)
-    date_str = c_date.strftime('%Y-%m-%d')
     
     try:
         # Make a GET request to your Flask route
-        response = requests.get(f'http://api:4000/g/guardian/{date_str}')
+        response = requests.get('http://api:4000/g/guardian/{c_date}')
         
         if response.status_code == 200:
             # If the request is successful, parse the JSON response
