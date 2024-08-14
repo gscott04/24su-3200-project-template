@@ -6,7 +6,6 @@ from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
 from datetime import date
 
-
 SideBarLinks()
 
 st.write("# Find today's daily schedule!")
@@ -20,7 +19,7 @@ if st.button('Get Schedule', type='primary', use_container_width=True):
         formatted_date = c_date.strftime('%Y-%m-%d')
         
         # GET request to Flask route with the formatted date
-        response = requests.get(f'http://api:4000/guardian/{formatted_date}')
+        response = requests.get(f'http://localhost:4000/guardian/{formatted_date}')
         
         if response.status_code == 200:
             # If the request is successful, parse the JSON response
@@ -30,6 +29,8 @@ if st.button('Get Schedule', type='primary', use_container_width=True):
             st.write(f"Items required for {formatted_date}:")
             for item in schedule_data:
                 st.write(f"Date: {item['date']}, Required Items: {item['requiredItems']}")
+        elif response.status_code == 404:
+            st.error(f"No schedule found for the date: {formatted_date}")
         else:
             st.error(f"Failed to fetch schedule. Status code: {response.status_code}")
     except requests.RequestException as e:
