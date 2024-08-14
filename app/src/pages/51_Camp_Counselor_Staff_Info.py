@@ -18,9 +18,9 @@ st.title("Staff Information Lookup")
 campID = st.number_input("Enter your Camp ID number:", step=1, key='campID')
 
 # Button to trigger the information retrieval
-if st.button('Get Guardian Info'):
+if st.button('Get Staff Info'):
     # API URL endpoint
-    url = f'http://api:4000/d/camp/{staffID}'
+    url = f'http://api:4000/camp_counselor/{staffID}'
     
     # Make a request to the API
     try:
@@ -41,6 +41,6 @@ if st.button('Get Guardian Info'):
             else:
                 st.warning("No staff information available for the given ID.")
     except requests.RequestException as e:
-        logger.error(f"Error fetching guardian info: {str(e)}")
+        logger.error(f"Error fetching staff info: {str(e)}")
         st.error(f"An error occurred: {str(e)}")
 
