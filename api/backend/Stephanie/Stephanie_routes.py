@@ -22,11 +22,11 @@ def get_directors(adminID):
 
     return the_response 
 
-@app_admin.route('/app_admin/<adminID>', methods=['GET']) 
-def contact_info(adminID): 
+@app_admin.route('/app_admin/<campID>', methods=['GET']) 
+def contact_camp(campID): 
     cursor = db.get_db().cursor()
-    the_query = '''SELECT campPhone, campEmail FROM Admin NATURAL JOIN Location NATURAL JOIN CampLocation NATURAL JOIN Camp Where adminID = adminID;
-    '''.format(adminID)
+    the_query = '''SELECT campPhone, campEmail FROM Admin NATURAL JOIN Location NATURAL JOIN CampLocation NATURAL JOIN Camp Where campID = campID;
+    '''.format(campID)
     cursor.execute(the_query) 
     the_Data = cursor.fetchall()
     the_response = make_response(the_Data)
