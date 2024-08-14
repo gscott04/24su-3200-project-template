@@ -9,7 +9,6 @@ logger = logging.getLogger(__name__)
 
 # Add sidebar navigation and logo to the Streamlit app
 SideBarLinks()
-add_logo(st.sidebar)
 
 # App main title
 st.title("Guardian Information Lookup")
