@@ -33,7 +33,7 @@ def CampCounselorDelete():
     st.sidebar.page_link("pages/52_Camp_Counselor_Delete.py", label="Camp Counselor delete", icon='🗑️')
 
 def CampCounselorUpdate():
-    st.sidebar.page_link("pages/53_Camp_Counselor_Update_Activity.py", label="Camp Counselor activity change", icon='👤')
+    st.sidebar.page_link("pages/53_Camp_Counselor_Update_Activity.py", label="Camp Counselor activity change", icon='🗓️')
 
 #### ------------------------ Camp Director Role ------------------------
 def CampDirectorHomeNav():
