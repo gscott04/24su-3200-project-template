@@ -61,8 +61,9 @@ def camper_info(c_id):
     cursor = db.get_db().cursor()
     the_query = f'''
     SELECT phoneNumber, email
-        FROM Camper NATURAL JOIN Cabin NATURAL JOIN Staff
-        WHERE Camper.camperID = {c_id};
+        FROM Camper
+                    JOIN Staff ON Camper.staffID = Staff.staffID
+        WHERE Camper.camperID = %s;
 '''
     
     cursor.execute(the_query, (c_id,))
