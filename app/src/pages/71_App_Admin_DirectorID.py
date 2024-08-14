@@ -9,34 +9,29 @@ SideBarLinks()
 
 st.write("Find Camp Director ID")
 
+
 adminID = st.number_input("Enter your ID number 2390", step=1)
 
-if st.button('Get Contact Info', type='primary', use_container_width=True):
+if st.button('Get Director IDs', type='primary', use_container_width=True):
     try:
         url = f'http://api:4000/a/app_admin/CD/{adminID}'
-        st.write(f"Requesting URL: {url}")
-        
         response = requests.get(url)
         
-        st.write(f"Response Status Code: {response.status_code}")
-        
         if response.status_code == 200:
-            try:
-                camp_contact = response.json()
-                st.write(f"Director IDs for your camps {adminID}")
-                if camp_contact:
-                    for item in camp_contact:
-                        st.write(f"Camp Director ID: {item['ID']}")
-                else:
-                    st.write("No contact information available for your camps.")
-            except ValueError as json_error:
-                st.error(f"Failed to parse JSON response. Error: {str(json_error)}")
-                st.write("Response Content:")
-                st.code(response.text)
+            director_data = response.json()
+            st.write(f"Director IDs for your camps (Admin ID: {adminID})")
+            if director_data:
+                for item in director_data:
+                    if 'campDirectorID' in item:
+                        st.write(f"Camp Director ID: {item['campDirectorID']}")
+                    else:
+                        st.write(f"Unexpected item structure: {item}")
+            else:
+                st.write("No director information available for your camps.")
         else:
-            st.error(f"Failed to fetch contact info. Status code: {response.status_code}")
+            st.error(f"Failed to fetch director info. Status code: {response.status_code}")
             st.write("Response Content:")
             st.code(response.text)
     except requests.RequestException as e:
-        logger.error(f"Error fetching contact info: {str(e)}")
-        st.error(f"Failed to fetch contact info. Error: {str(e)}")
+        logger.error(f"Error fetching director info: {str(e)}")
+        st.error(f"Failed to fetch director info. Error: {str(e)}")
