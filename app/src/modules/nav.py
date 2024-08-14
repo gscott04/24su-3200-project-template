@@ -41,11 +41,13 @@ def GuardianHomeNav():
 def GuardianTestNav():
     st.sidebar.page_link("pages/41_Guardian_Test.py", label="Test the Guardian API", icon='🛜')
 
+def GuardianScheduleNav():
+    st.sidebar.page_link("pages/42_Guardian_DailySchedule.py", label="Check Daily Schedule", icon='🗓️')
+
 def GuardianContact():
     st.sidebar.page_link("pages/43_Guardian_Contact.py", label="Test", icon='🌺')
 
-def GuardianScheduleNav():
-    st.sidebar.page_link("pages/42_Guardian_DailySchedule.py", label="Check Daily Schedule", icon='🗓️')
+
     
 #### ------------------------ Camp Counselor Role ------------------------
 def CampCounselorHomeNav():
@@ -110,9 +112,10 @@ def SideBarLinks(show_home=False):
 
         if st.session_state['role'] == 'guardian':
             GuardianHomeNav()
-            GuardianTestNav()  
+            GuardianTestNav()
+            GuardianScheduleNav()    
             GuardianContact()
-            GuardianScheduleNav()  
+            
 
         if st.session_state['role'] == 'camp_counselor':
             CampCounselorHomeNav()      
