@@ -13,13 +13,13 @@ SideBarLinks()
 # App main title
 st.title("Guardian Information Lookup")
 
-# Input for Guardian ID
-guardian_id = st.number_input("Enter your Camper ID number:", step=1, key='camper_id')
+# Input for Camper ID
+camper_id = st.number_input("Enter your Camper ID number:", step=1, key='camper_id')
 
 # Button to trigger the information retrieval
 if st.button('Get Guardian Info'):
     # API URL endpoint
-    url = f'http://api:4000/d/camp_director/{guardian_id}'
+    url = f'http://api:4000/d/camp_director/{camper_id}'
     
     # Make a request to the API
     try:
