@@ -24,7 +24,7 @@ date_to_delete = "7/27/2024"
 
 if st.button('Delete Schedule', type ="primary", use_content_width=True):
     # Construct the DELETE request URL 
-    delete_url = f'http://api:4000/camp_counselor/{campID}/{sessionID}'
+    delete_url = f'http://api:4000/c/camp_counselor/{campID}/{sessionID}'
     # Send delete request 
     response = requests.delete(delete_url)
     # Handling the response 

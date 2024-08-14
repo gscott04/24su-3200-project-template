@@ -29,10 +29,10 @@ def CampCounselorHomeNav():
 def CampCounselorStaff():
     st.sidebar.page_link("pages/51_Camp_Counselor_Staff_Info.py", label="Camp Counselor find staff", icon='👤')
 
-def CampCounselorStaff():
+def CampCounselorDelete():
     st.sidebar.page_link("pages/52_Camp_Counselor_Delete.py", label="Camp Counselor delete", icon='👤')
 
-def CampCounselorStaff():
+def CampCounselorUpdate():
     st.sidebar.page_link("pages/53_Camp_Counselor_Update_Activity.py", label="Camp Counselor activity change", icon='👤')
 
 #### ------------------------ Camp Director Role ------------------------
@@ -87,7 +87,10 @@ def SideBarLinks(show_home=False):
             GuardianContactNav()
             
         if st.session_state['role'] == 'camp_counselor':
-            CampCounselorHomeNav()      
+            CampCounselorHomeNav()    
+            CampCounselorStaff()  
+            CampCounselorDelete()
+            CampCounselorUpdate()
 
         if st.session_state['role'] == 'camp_director':
             CampDirectorHomeNav()  

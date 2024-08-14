@@ -13,7 +13,7 @@ staffID =st.number_input("Enter the staff ID to find the cabin they're staying i
 
 if st.button('Get Cabin Info', type='primary', use_container_width=True):
     try:
-        url = f'http://api:4000/camp_director/{staffID}'
+        url = f'http://api:4000/d/camp_director/{staffID}'
         response = requests.get(url)
         
         if response.status_code == 200:

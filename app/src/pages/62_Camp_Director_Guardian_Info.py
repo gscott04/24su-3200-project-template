@@ -19,11 +19,7 @@ camper_id = st.number_input("Enter your Camper ID number:", step=1, key='camper_
 # Button to trigger the information retrieval
 if st.button('Get Guardian Info'):
     # API URL endpoint
-<<<<<<< HEAD
-    url = f'http://api:4000/camp_director/{guardian_id}'
-=======
     url = f'http://api:4000/d/camp_director/{camper_id}'
->>>>>>> 34f1ebf9cd718bc2c664dadaafb1e51f78765388
     
     # Make a request to the API
     try:

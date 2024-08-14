@@ -11,7 +11,7 @@ st.write("Find guardians who haven't paid.")
 
 if st.button('Missing payment', type='primary', use_container_width=True):
     try:
-        url = f'http://api:4000/camp_director/unpaid'
+        url = f'http://api:4000/d/camp_director/unpaid'
         response = requests.get(url)
         
         
