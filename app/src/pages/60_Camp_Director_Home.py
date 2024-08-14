@@ -19,10 +19,10 @@ if st.button('View Cabin Information',
              use_container_width=True):
   st.switch_page('pages/61_Camp_Director_Cabin_Info.py')
 
-if st.button('View the Simple API Demo', 
+if st.button('Get a Guardians Contact Info', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/12_API_Test.py')
+  st.switch_page('pages/62_Camp_Director_Guardian_Info.py')
 
 if st.button("View Classification Demo",
              type='primary',
