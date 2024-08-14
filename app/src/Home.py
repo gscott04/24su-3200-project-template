@@ -36,7 +36,7 @@ SideBarLinks(show_home=True)
 logger.info("Loading the Home page of the app")
 st.title('SummerSync')
 st.write('\n\n')
-st.write('### HI! As which user would you like to log in?')
+st.write('### Welcome camp family! As which user would you like to log in?')
 
 # For each of the user personas for which we are implementing
 # functionality, we put a button on the screen that the user 
@@ -76,9 +76,15 @@ if st.button('Act as System Administrator',
 if st.button('Act as Katy Ito, a Guardian',
         type = 'primary',
         use_container_width=True):
+        # when user clicks the button, they are now considered authenticated
         st.session_state['authenticated'] = True
+        # we set the role of the current user
         st.session_state['role'] = 'guardian'
+        # we add the first name of the user (so it can be displayed on 
+        # # subsequent pages). 
         st.session_state['first_name'] = 'Katy'
+        # finally, we ask streamlit to switch to another page, in this case, the 
+        # # landing page for this particular user type
         st.switch_page('pages/40_Guardian_Home.py')
 
 if st.button('Act as Jackie Saturn, a Camp Counselor',
