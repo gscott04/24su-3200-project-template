@@ -17,7 +17,7 @@ st.write('### What would you like to do today?')
 if st.button('Check Daily Schedule', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/111_Guardian_DailySchedule.py')
+  st.switch_page('pages/42_Guardian_DailySchedule.py')
 
 
 if st.button('Predict Value Based on Regression Model', 
