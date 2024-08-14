@@ -14,7 +14,7 @@ st.write('')
 st.write('')
 st.write('### What would you like to do today?')
 
-if st.button('Get Cabin Information', 
+if st.button('View Cabin Information', 
              type='primary',
              use_container_width=True):
   st.switch_page('pages/61_Camp_Director_Cabin_Info.py')
