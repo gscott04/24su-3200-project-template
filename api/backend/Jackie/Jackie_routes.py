@@ -9,7 +9,7 @@ from backend.ml_models.model01 import predict
 
 camp_counselor = Blueprint('camp_counselor', __name__)
 
-@camp_counselor.route('/activity/<c_ID>', methods=['GET'])
+@camp_counselor.route('/camp_counselor/<c_ID>', methods=['GET'])
 def predict_value(c_ID):
     cursor = db.get_db().cursor()
     the_query = f'''
@@ -63,4 +63,4 @@ def update_activity():
     cursor = db.get_db().cursor()
     cursor.execute(query, data)
     db.get_db().commit()
-    return 'customer updated!'
+    return 'activity updated!'
