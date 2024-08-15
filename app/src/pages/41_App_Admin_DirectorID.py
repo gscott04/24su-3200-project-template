@@ -5,24 +5,31 @@ import requests
 from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
 
+# Display appropriate sidebar links
 SideBarLinks()
 
+# Display page title 
 st.write("Find Camp Director ID")
 
+# Input field for the admin ID
 adminID = st.number_input("Enter your ID number 2390", step=1)
-
+# Button to get the director IDs associated with the admin ID
 if st.button('Get Director IDs', type='primary', use_container_width=True):
     try:
+        # Send a GET request to the API with the adminID
         url = f'http://api:4000/a/app_admin/CD/{adminID}'
         response = requests.get(url)
-        
+        # Parse the response as JSON from the API
         if response.status_code == 200:
             director_data = response.json()
+            # Display the director IDs associated with the admin ID
             st.write(f"Director IDs for your camps (Admin ID: {adminID})")
             if director_data:
+                # Loop through the director data for relevant info
                 for item in director_data:
                     if 'campDirectorID' in item:
                         st.write(f"Camp Director ID: {item['campDirectorID']}")
+                    # Error messages 
                     else:
                         st.write(f"Unexpected item structure: {item}")
             else:

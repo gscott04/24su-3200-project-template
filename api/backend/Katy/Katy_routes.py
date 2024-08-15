@@ -1,6 +1,5 @@
 ########################################################
-# Sample customers blueprint of endpoints
-# Remove this file if you are not using it in your project
+# Guardian (Katy) blueprint of endpoints
 ########################################################
 
 from flask import Blueprint, request, jsonify, make_response, current_app
@@ -82,6 +81,6 @@ def camper_info(c_id):
     the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
-    
+
     return the_response
 

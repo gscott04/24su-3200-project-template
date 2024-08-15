@@ -20,23 +20,17 @@ campID = st.number_input("Enter your Camp ID number:", step=1)
 if st.button('Get Staff Info'):
     # API URL endpoint
     url = f'http://api:4000/c/camp_counselor/{campID}'
-    
     # Make a request to the API
     try:
         response = requests.get(url)
         response.raise_for_status()  # Raises a HTTPError for bad responses
-
         # If the response is successful
         if response.ok:
             staffID_data = response.json()
             if staffID_data:
                 for item in staffID_data:
-                    # Display each staff's details
-                    #if 'campID' in item:
                         st.write(f"First Name: {item['firstName']}, Last Name: {item['lastName']}, "
                                  f"Role: {item['role']}, Phone: {item['phoneNumber']}, Email: {item['email']}")
-                    #else:
-                        #st.error("Unexpected item structure.")
             else:
                 st.warning("No staff information available for the given ID.")
     except requests.RequestException as e:

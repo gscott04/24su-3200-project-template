@@ -6,7 +6,7 @@ from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
 from datetime import date
 
-
+# Display the appropriate sidebar links
 SideBarLinks()
 
 # Set up logging 

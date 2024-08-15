@@ -5,10 +5,13 @@ import requests
 from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
 
+# Display appropriate sidebar links
 SideBarLinks()
 
+# Display page title
 st.write("Find a guardian's contact information")
 
+# Input field for adminID
 adminID = st.number_input("Enter your ID number 2390", step=1)
 
 if st.button('Get Contact Info', type='primary', use_container_width=True):
