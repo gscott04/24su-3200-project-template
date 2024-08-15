@@ -14,52 +14,52 @@ def GuardianHomeNav():
     st.sidebar.page_link("pages/10_Guardian_Home.py", label="Guardian Home", icon='🏠')
 
 def GuardianMedNav():
-    st.sidebar.page_link("pages/11_Guardian_Med_Post.py", label="Add child's medical needs", icon='💊')
+    st.sidebar.page_link("pages/11_Guardian_Med_Post.py", label="Add Child's Medical Needs", icon='💊')
 
 def GuardianScheduleNav():
-    st.sidebar.page_link("pages/12_Guardian_Items.py", label="Required items for a day", icon='🗓️')
+    st.sidebar.page_link("pages/12_Guardian_Items.py", label="Required Items For a Day", icon='🗓️')
 
 def GuardianContactNav():
-    st.sidebar.page_link("pages/13_Guardian_contact.py", label="Counselor's contact info", icon='📲')
+    st.sidebar.page_link("pages/13_Guardian_contact.py", label="Counselor's Contact Info", icon='📲')
     
 #### ------------------------ Camp Counselor Role ------------------------
 def CampCounselorHomeNav():
     st.sidebar.page_link("pages/20_Camp_Counselor_Home.py", label="Camp Counselor Home", icon='🏠')
 
 def CampCounselorStaff():
-    st.sidebar.page_link("pages/21_Camp_Counselor_Staff_Info.py", label="Camp Counselor find staff", icon='👤')
+    st.sidebar.page_link("pages/21_Camp_Counselor_Staff_Info.py", label="Find Your Coworkers", icon='👤')
 
 def CampCounselorDelete():
-    st.sidebar.page_link("pages/22_Camp_Counselor_Delete.py", label="Camp Counselor delete", icon='🗑️')
+    st.sidebar.page_link("pages/22_Camp_Counselor_Delete.py", label="Delete an Unplanned Activity", icon='🗑️')
 
 def CampCounselorUpdate():
-    st.sidebar.page_link("pages/23_Camp_Counselor_Update_Activity.py", label="Camp Counselor activity change", icon='🗓️')
+    st.sidebar.page_link("pages/23_Camp_Counselor_Update_Activity.py", label="Change an Activity Description", icon='🗓️')
 
 #### ------------------------ Camp Director Role ------------------------
 def CampDirectorHomeNav():
     st.sidebar.page_link("pages/30_Camp_Director_Home.py", label="Camp Director Home", icon='🏠')
 
 def CampDirectorCabinInfo():
-    st.sidebar.page_link("pages/31_Camp_Director_Cabin_Info.py", label="Camp Director Information", icon='⛺')    
+    st.sidebar.page_link("pages/31_Camp_Director_Cabin_Info.py", label="Staff Cabin Look-Up", icon='⛺')    
 
 def CampDirectorGuardianInfo():
-    st.sidebar.page_link("pages/32_Camp_Director_Guardian_Info.py", label="Guardian Information", icon='👤')  
+    st.sidebar.page_link("pages/32_Camp_Director_Guardian_Info.py", label="Guardian Contact Information", icon='👤')  
 
 def CampDirectorGuardianPaid():
-    st.sidebar.page_link("pages/33_Camp_Director_Guardian_Paid.py", label="Guardian Paid", icon='💰')      
+    st.sidebar.page_link("pages/33_Camp_Director_Guardian_Paid.py", label="Guardian Billing Status", icon='💰')      
 
 #### ------------------------ App Admin Role ------------------------
 def AppAdminHomeNav():
     st.sidebar.page_link("pages/40_App_Admin_Home.py", label="App Admin Home", icon='🏠')
 
 def AppAdminDirectorNav():
-    st.sidebar.page_link("pages/41_App_Admin_DirectorID.py", label="App Admin Director ID", icon='👤')
+    st.sidebar.page_link("pages/41_App_Admin_DirectorID.py", label="Find Camp Directors", icon='👤')
 
 def AppAdminCampNav():
-    st.sidebar.page_link("pages/42_App_Admin_Contact.py", label="App Admin Guardian Outreach", icon='📲')
+    st.sidebar.page_link("pages/42_App_Admin_Contact.py", label="Guardian Outreach", icon='📲')
 
 def AppAdminCampContactNav():
-    st.sidebar.page_link("pages/43_App_Admin_Camp_Contact.py", label="App Admin Camp Outreach", icon='🏕️')
+    st.sidebar.page_link("pages/43_App_Admin_Camp_Contact.py", label="Camp Outreach", icon='🏕️')
 
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False):
