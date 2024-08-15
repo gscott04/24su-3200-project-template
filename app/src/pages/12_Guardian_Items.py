@@ -10,9 +10,9 @@ SideBarLinks()
 
 st.write("# Find what your camper needs for the day!")
 
-c_date = st.date_input("Select a date between 7/22/24 and 8/31/24 or 2016/07/29", value=date.today())
+c_date = st.date_input("Select a date between 7/22/24 and 8/31/24", value=date.today())
 
-if st.button('Get Schedule', type='primary', use_container_width=True):
+if st.button('Get Packing List', type='primary', use_container_width=True):
     
     try:
         # Format the date as a string in the desired format (YYYY-MM-DD)
@@ -26,9 +26,9 @@ if st.button('Get Schedule', type='primary', use_container_width=True):
             schedule_data = response.json()
             
             # Display the schedule data
-            st.write(f"Items required for {formatted_date}:")
+            st.write(f"Your child will need these items for camp on {formatted_date}:")
             for item in schedule_data:
-                st.write(f"Your child should come with the following item or items: {item['requiredItems']}")
+                st.write(f"{item['requiredItems']}")
         elif response.status_code == 404:
             st.error(f"No schedule found for the date: {formatted_date}")
         else:

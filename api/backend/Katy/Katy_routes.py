@@ -62,7 +62,7 @@ def day_info(c_date):
 def camper_info(c_id):
     cursor = db.get_db().cursor()
     the_query = '''
-    SELECT phoneNumber, email
+    SELECT Staff.firstName, Staff.lastName, phoneNumber, email
     FROM Camper
         JOIN Staff ON Camper.staffID = Staff.staffID
     WHERE Camper.camperID = %s;
