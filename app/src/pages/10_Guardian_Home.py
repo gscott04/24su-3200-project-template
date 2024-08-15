@@ -22,7 +22,7 @@ if st.button("Enter medical information",
 if st.button('Find required items for the day', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/12_Guardian_DailySchedule.py')
+  st.switch_page('pages/12_Guardian_Items.py')
 
 if st.button("Reach out to a counselor",
              type='primary',
