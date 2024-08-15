@@ -56,7 +56,10 @@ def AppAdminDirectorNav():
     st.sidebar.page_link("pages/71_App_Admin_DirectorID.py", label="App Admin Director ID", icon='👤')
 
 def AppAdminCampNav():
-    st.sidebar.page_link("pages/72_App_Admin_Contact.py", label="App Admin Outreach", icon='📲')
+    st.sidebar.page_link("pages/72_App_Admin_Contact.py", label="App Admin Guardian Outreach", icon='📲')
+
+def AppAdminCampContactNav():
+    st.sidebar.page_link("pages/73_App_Admin_Camp_Contact.py", label="App Admin Camp Outreach", icon='🏕️')
 
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False):
@@ -101,7 +104,8 @@ def SideBarLinks(show_home=False):
         if st.session_state['role'] == 'app_admin':
             AppAdminHomeNav()   
             AppAdminDirectorNav() 
-            AppAdminCampNav()      
+            AppAdminCampNav()
+            AppAdminCampContactNav()      
 
 
     # Always show the About page at the bottom of the list of links

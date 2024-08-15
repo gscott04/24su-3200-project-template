@@ -9,7 +9,6 @@ SideBarLinks()
 
 st.write("Find Camp Director ID")
 
-
 adminID = st.number_input("Enter your ID number 2390", step=1)
 
 if st.button('Get Director IDs', type='primary', use_container_width=True):

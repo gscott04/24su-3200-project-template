@@ -7,23 +7,23 @@ from modules.nav import SideBarLinks
 
 SideBarLinks()
 
-st.write("Find a guardian's contact information")
+st.write("Find Camp Contact Info")
 
 adminID = st.number_input("Enter your ID number 2390", step=1)
 
-if st.button('Get Contact Info', type='primary', use_container_width=True):
+if st.button('Get Contact Info for Your Camps', type='primary', use_container_width=True):
     try:
-        url = f'http://api:4000/a/app_admin/{adminID}'
+        url = f'http://api:4000/a/app_admin/AC/{adminID}'
         
         response = requests.get(url)
         
         if response.status_code == 200:
             try:
-                guardian_contact = response.json()
-                st.write(f"Contact info for guardians based on your ID: {adminID}")
-                if guardian_contact:
-                    for item in guardian_contact:
-                        st.write(f"Guardian Phone: {item['phone']}, Guardian Email: {item['email']}")
+                camp_contact = response.json()
+                st.write(f"Contact info for camps assigned to app admin: {adminID}")
+                if camp_contact:
+                    for item in camp_contact:
+                        st.write(f"Camp Phone: {item['phone']}, Camp Email: {item['email']}")
                 else:
                     st.write(f"No contact information available for your camps.")
             except ValueError as json_error:

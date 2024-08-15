@@ -19,7 +19,12 @@ if st.button('Find the camp directors',
              use_container_width=True):
   st.switch_page('pages/71_App_Admin_DirectorID.py')  
 
-if st.button('Reach out to your camps', 
+if st.button('Reach out to some guardians', 
              type='primary',
              use_container_width=True):
   st.switch_page('pages/72_App_Admin_Contact.py')
+
+if st.button('Reach out to your camps', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/73_App_Admin_Camp_Contact.py')

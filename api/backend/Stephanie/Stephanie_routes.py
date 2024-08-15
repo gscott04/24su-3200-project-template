@@ -1,6 +1,5 @@
 ########################################################
-# Sample customers blueprint of endpoints
-# Remove this file if you are not using it in your project
+# App Admin (Stephanie) blueprint of endpoints
 ########################################################
 from flask import Blueprint, request, jsonify, make_response, current_app
 import json
@@ -9,9 +8,7 @@ from backend.ml_models.model01 import predict
 
 app_admin = Blueprint('app_admin', __name__)
 
-import traceback
-from flask import jsonify, current_app
-
+# 4.1 getting director ID
 @app_admin.route('/app_admin/CD/<adminID>', methods=['GET'])
 def get_directors(adminID):
     try:
@@ -29,6 +26,7 @@ def get_directors(adminID):
             return jsonify({"message": f"No data found for admin ID {adminID}"}), 404
         
         the_response = []
+        
         for row in the_Data:
             if isinstance(row, dict):
                 the_response.append({"campDirectorID": row.get('campDirectorID')})
@@ -40,7 +38,29 @@ def get_directors(adminID):
         return jsonify(the_response), 200
     except Exception as e:
         return jsonify({"error": "An internal server error occurred"}), 500
-    
+
+# 4.2 getting guardian contact info
+@app_admin.route('/app_admin/<adminID>', methods=['GET'])
+def get_contacts(adminID):
+    cursor = db.get_db().cursor()
+    the_query = f'''SELECT g.email, g.phone
+                        FROM Admin a
+                            JOIN Location l ON a.adminID = l.adminID
+                            JOIN CampLoc cl ON l.locationID = cl.locationID
+                            JOIN Camp c ON cl.campID = c.campID
+                            JOIN Camper cm ON c.campID = cm.campID
+                            JOIN Guardian g ON cm.guardianID = g.guardianID
+                        WHERE a.adminID = {adminID}
+                        LIMIT 10;
+    '''
+    cursor.execute(the_query) 
+    the_Data = cursor.fetchall()
+    the_response = make_response(the_Data)
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response  
+
+# getting camp contact info
 @app_admin.route('/app_admin/AC/<adminID>', methods=['GET']) 
 def admin_contacts(adminID): 
     cursor = db.get_db().cursor()
@@ -63,24 +83,3 @@ def admin_contacts(adminID):
             the_response.append({"phone": row, "email": row})
     
     return jsonify(the_response), 200
-
-@app_admin.route('/app_admin/<adminID>', methods=['GET'])
-def get_contacts(adminID):
-    cursor = db.get_db().cursor()
-    the_query = f'''SELECT g.email, g.phone
-FROM Admin a
-    JOIN Location l ON a.adminID = l.adminID
-    JOIN CampLoc cl ON l.locationID = cl.locationID
-    JOIN Camp c ON cl.campID = c.campID
-    JOIN Camper cm ON c.campID = cm.campID
-    JOIN Guardian g ON cm.guardianID = g.guardianID
-WHERE a.adminID = {adminID}
-LIMIT 10;
-    '''
-    cursor.execute(the_query) 
-    the_Data = cursor.fetchall()
-    the_response = make_response(the_Data)
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-
-    return the_response  
