@@ -17,16 +17,16 @@ st.write('### What would you like to do today?')
 if st.button("Enter medical information",
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/41_Guardian_Test.py')
+  st.switch_page('pages/11_Guardian_Med_Post.py')
 
-if st.button('Check Daily Schedule', 
+if st.button('Find required items for the day', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/42_Guardian_DailySchedule.py')
+  st.switch_page('pages/12_Guardian_DailySchedule.py')
 
 if st.button("Reach out to a counselor",
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/43_Guardian_contact.py')  
+  st.switch_page('pages/13_Guardian_contact.py')  
 
 

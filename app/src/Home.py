@@ -54,7 +54,7 @@ if st.button('Act as Katy Ito, a Guardian',
         st.session_state['first_name'] = 'Katy'
         # finally, we ask streamlit to switch to another page, in this case, the 
         # # landing page for this particular user type
-        st.switch_page('pages/40_Guardian_Home.py')
+        st.switch_page('pages/10_Guardian_Home.py')
 
 if st.button('Act as Jackie Saturn, a Camp Counselor',
         type = 'primary',
@@ -62,7 +62,7 @@ if st.button('Act as Jackie Saturn, a Camp Counselor',
         st.session_state['authenticated'] = True
         st.session_state['role'] = 'camp_counselor'
         st.session_state['first_name'] = 'Jackie'
-        st.switch_page('pages/50_Camp_Counselor_Home.py')
+        st.switch_page('pages/20_Camp_Counselor_Home.py')
 
 if st.button('Act as Chad Cheese, a Camp Director',
         type = 'primary',
@@ -70,7 +70,7 @@ if st.button('Act as Chad Cheese, a Camp Director',
         st.session_state['authenticated'] = True
         st.session_state['role'] = 'camp_director'
         st.session_state['first_name'] = 'Chad'
-        st.switch_page('pages/60_Camp_Director_Home.py')
+        st.switch_page('pages/30_Camp_Director_Home.py')
 
 if st.button('Act as Stephanie Black, an App Admin',
         type = 'primary',
@@ -78,4 +78,4 @@ if st.button('Act as Stephanie Black, an App Admin',
         st.session_state['authenticated'] = True
         st.session_state['role'] = 'app_admin'
         st.session_state['first_name'] = 'Stephanie'
-        st.switch_page('pages/70_App_Admin_Home.py')
+        st.switch_page('pages/40_App_Admin_Home.py')
