@@ -9,13 +9,13 @@ from datetime import date
 
 SideBarLinks()
 
-st.write("Update Your Activities!")
+st.write("Update Your Activity!")
 
 # Create a form for entering medical information
-with st.form("enter med info"):
-    # Input field for the camperID
+with st.form("Update activity description for August 8th, 2024 below"):
+    # Input field for the new description
     c_info = st.text_input("Please write the new description")
-    # Input field for the medical condition ID
+
     # Submit button for the form 
     submitted = st.form_submit_button("submit")
     if submitted: 
@@ -25,9 +25,8 @@ with st.form("enter med info"):
         # Display the submitted data on the page 
         st.write(data)
         # Send a POST request to the API with the submitted data
-        requests.post('http://api:4000/g/guardian', json = data)
+        requests.put('http://api:4000/g/guardian', json = data)
 
-
-"""
+'''
 Enter the new description for today's activity
-"""
+'''
