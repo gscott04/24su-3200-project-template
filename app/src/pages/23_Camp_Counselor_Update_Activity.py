@@ -23,13 +23,9 @@ with st.form("Update activity description for August 8th, 2024 below"):
     if submitted: 
         # Create a dictionary to store the data
         data = {"description": description}
-        data["description"] = description
         # Display the submitted data on the page 
 
         # Send a POST request to the API with the submitted data
         response = requests.put(f'http://api:4000/c/camp_counselor/{activityID}', json=data)
         response.raise_for_status()
         st.success("Activity updated successfully!")
-'''
-Enter the new description for today's activity
-'''

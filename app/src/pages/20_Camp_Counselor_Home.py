@@ -22,13 +22,13 @@ if st.button('Get Staff Information',
   # Switch to "Camp Counselor Staff Info" page
   st.switch_page('pages/21_Camp_Counselor_Staff_Info.py')
 # Button to navigate to the page for deleting schedule information
-if st.button('Delete Schedule Information', 
+if st.button('Delete Activity', 
              type='primary',
              use_container_width=True):
   # Switch to "Camp Counselor Delete" page
   st.switch_page('pages/22_Camp_Counselor_Delete.py')
 # Button to navigate to the page for updating activity description
-if st.button("Update Actvity Description",
+if st.button("Update Activity Description",
              type='primary',
              use_container_width=True):
   # Switch to "Camp Counselor Update Activity" page
