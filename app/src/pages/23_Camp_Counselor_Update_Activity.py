@@ -39,6 +39,12 @@ if submitted:
         
         if response.status_code == 200:
             st.success("Activity updated successfully!")
+        else:
+            error_message = response.json().get('error', 'Unknown error occurred')
+            st.error(f"Failed to update activity: {error_message}")
+        
+        # Optional: Display the full response for debugging
+        st.json(response.json())
         
     except requests.exceptions.RequestException as e:
         st.error(f"An error occurred while connecting to the API: {e}")
