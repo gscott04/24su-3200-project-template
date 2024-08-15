@@ -200,7 +200,7 @@ CREATE TABLE IF NOT EXISTS RequiredItems (
     PRIMARY KEY (requiredItems, activityID),
     CONSTRAINT fk_RequiredItems_activityID FOREIGN KEY (activityID)
         REFERENCES Activity (activityID)
-        ON UPDATE cascade ON DELETE restrict
+        ON UPDATE cascade ON DELETE cascade
 );
 
 INSERT INTO Guardian (guardianID, firstName, lastName, email, phone, paid) VALUES
@@ -775,7 +775,7 @@ INSERT INTO Activity (activityID, name, description) VALUES
 (37, 'Slip and slide', 'Have fun on a slip and slide, enjoying a refreshing and exciting way to cool off on hot days.'),
 (38, 'Campout under the stars', 'Enjoy a night camping outdoors, learning about nature and sharing stories around the campfire.'),
 (39, 'Tie-dyeing', 'Get creative with tie-dyeing, making colorful and unique clothing and accessories.'),
-(40, 'Animal tracking', 'Learn to identify animal tracks and signs in nature, enhancing your observation skills while exploring.'); 
+(40, 'Animal tracking', 'Learn to identify animal tracks and signs in nature, enhancing your observation skills while exploring.'),
 (41, 'Orienteering', 'Learn to navigate using a compass and map in the wilderness'),
 (42, 'Wilderness Survival', 'Learn essential survival skills including water purification'),
 (43, 'Insect Study', 'Study local insects while staying protected from bites'),
@@ -825,7 +825,8 @@ INSERT INTO Activity (activityID, name, description) VALUES
 (87, 'Cold Weather Camping', 'Stay warm and safe during cold weather camping'),
 (88, 'Gourmet Camp Cooking', 'Prepare delicious meals using camping cookware'),
 (89, 'Night Exploration', 'Safely explore the campsite after dark'),
-(90, 'Equipment Maintenance', 'Learn to repair and maintain camping equipment');
+(90, 'Equipment Maintenance', 'Learn to repair and maintain camping equipment'),
+(91, 'Equipment Maintenance', 'Learn to repair and maintain camping equipment');
 
 INSERT INTO RequiredItems (requiredItems, activityID) VALUES 
 ('Walking stick', '32'),
@@ -917,7 +918,8 @@ INSERT INTO RequiredItems (requiredItems, activityID) VALUES
 ('Portable camping heater', '87'),
 ('Camping cookware set', '88'),
 ('Portable camping light', '89'),
-('Camping repair kit', '90');
+('Camping repair kit', '90'),
+('Camping repair kit', '91');
 
 INSERT INTO ScheduleActivity (activityID, scheduleID) VALUES
 ('23', '28'), ('25', '18'), ('12', '31'), ('2', '4'), ('8', '35'),

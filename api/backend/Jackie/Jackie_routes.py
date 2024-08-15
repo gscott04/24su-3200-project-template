@@ -33,20 +33,17 @@ def predict_value(c_ID):
     return the_response
 
 
-# 2.2: Deleting a daily schedule for a camp session
+# 2.2: Deleting required items
 @camp_counselor.route('/camp_counselor/<campID>/<sessionID>/<date>', methods=['DELETE'])
-def delete_schedule(campID, sessionID, date):
+def delete_schedule(activityID):
    # Get a database cursor to execute the query
    cursor = db.get_db().cursor()
-   the_query = f'''
-   DELETE FROM DailySchedule 
-   USING DailySchedule
-   WHERE DailySchedule.date = {date}
-				AND DailySchedule.campID = {campID}
-				AND DailySchedule.sessionID = {sessionID};
-                '''	
+   query = f'''
+   DELETE FROM Activity 
+   WHERE activityID  = {activityID};
+    '''	
    # Execute the SQL deletion query	
-   cursor.execute(the_query (campID, sessionID))
+   cursor.execute(query, activityID)
    # Commit the changes to the database
    db.get_db.commit() 
    # Return a success message 
