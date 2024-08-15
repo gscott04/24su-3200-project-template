@@ -9,10 +9,10 @@ from modules.nav import SideBarLinks
 SideBarLinks()
 
 # Display page title 
-st.write("Find Camp Director ID")
+st.write("Find Your Camp Directors")
 
 # Input field for the admin ID
-adminID = st.number_input("Enter your ID number 2390", step=1)
+adminID = st.number_input("Enter your ID number", step=1)
 # Button to get the director IDs associated with the admin ID
 if st.button('Get Director IDs', type='primary', use_container_width=True):
     try:

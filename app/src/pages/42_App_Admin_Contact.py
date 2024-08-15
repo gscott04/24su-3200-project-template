@@ -12,7 +12,7 @@ SideBarLinks()
 st.write("Find a guardian's contact information")
 
 # Input field for adminID
-adminID = st.number_input("Enter your ID number 2390", step=1)
+adminID = st.number_input("Enter your ID number", step=1)
 # Button to get the contact info for guardians based on the adminID
 if st.button('Get Contact Info', type='primary', use_container_width=True):
     try:
