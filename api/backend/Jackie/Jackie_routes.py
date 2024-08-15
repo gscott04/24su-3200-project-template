@@ -55,16 +55,17 @@ def delete_schedule(campID, sessionID, date):
 
 # 2.3: Updating an activity description for a camp session
 @camp_counselor.route('/camp_counselor', methods=['PUT'])
-def update_activity():
+def update_activity(description):
     # Log the incoming request
     current_app.logger.info('PUT /camp_counselor route')
     # Get the JSON data from the request
     camp_info = request.json
     # Extract the activity description from the JSON data
-    camp_info = camp_info['description']
+    c_info = camp_info['description']
     query = f'''
     UPDATE Activity
-    SET Activity.description = '%s'
+    SET Activity.description =''' 
+    query += c_info + '''
     FROM Activity
     JOIN ScheduleActivity ON Activity.activityId = ScheduleActivity.activityId
     JOIN DailySchedule ON ScheduleActivity.scheduleId = DailySchedule.scheduleId
@@ -72,11 +73,11 @@ def update_activity():
     AND DailySchedule.campID = 16
     AND DailySchedule.sessionID = 24;
     '''
-    # Execute the update query with new activity description
-    data = (camp_info)
+    current_app.logger.info(query)
+    # Executing and committing the insert statement 
     cursor = db.get_db().cursor()
-    cursor.execute(query, data)
-    # Commit the updates to the database 
+    cursor.execute(query)
+    # Committing the changes to the database
     db.get_db().commit()
-    # Return a success message 
+    # Returning a success message
     return 'activity updated!'
