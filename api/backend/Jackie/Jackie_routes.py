@@ -14,7 +14,7 @@ camp_counselor = Blueprint('camp_counselor', __name__)
 def predict_value(c_ID):
     cursor = db.get_db().cursor()
     the_query = f'''
-    SELECT s.firstName, s.lastName, s.phoneNumber, s.email
+    SELECT s.firstName, s.lastName, s.role, s.phoneNumber, s.email
     FROM Staff s
     JOIN CampSession cs ON s.sessionID = cs.sessionID
     WHERE s.campID = {c_ID}

@@ -33,8 +33,8 @@ if st.button('Get Staff Info'):
                 for item in staffID_data:
                     # Display each staff's details
                     #if 'campID' in item:
-                        st.write(f"First Name: {item['firstName']}, Last Name: {item['lastName']}"
-                                 f"Phone: {item['phoneNumber']}, Email: {item['email']}")
+                        st.write(f"First Name: {item['firstName']}, Last Name: {item['lastName']}, "
+                                 f"Role: {item['role']}, Phone: {item['phoneNumber']}, Email: {item['email']}")
                     #else:
                         #st.error("Unexpected item structure.")
             else:
