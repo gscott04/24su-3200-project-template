@@ -29,5 +29,5 @@ with st.form("enter med info"):
 
 
 """
-Please enter in your camper's ID and the corresponding medical conditions ID
+Enter the new description for today's activity
 """
