@@ -52,15 +52,27 @@ def delete_schedule(activityID):
 # 2.3: Updating an activity description for a camp session
 @camp_counselor.route('/camp_counselor/<activityID>', methods=['PUT'])
 def update_activity(activityID):
-    # Get a database cursor to execute the query
-    new_description = request.get_json
-    query = '''
-    UPDATE Activity
-    SET description = %s
-    WHERE activityID = %s;
-    '''
-    # Execute the SQL update query
-    cursor = db.get_db().cursor()
-    cursor.execute(query, (new_description, activityID))
-    db.get_db().commit()
-    return jsonify({"message": "Activity updated successfully!"}), 200
+    try:
+        # Get the JSON data from the request
+        data = request.get_json()
+        
+        if not data or 'description' not in data:
+            return jsonify({"error": "Invalid data. 'description' is required."}), 400
+
+        new_description = data['description']
+        
+        query = '''
+        UPDATE Activity
+        SET description = %s
+        WHERE activityID = %s;
+        '''
+        
+        # Execute the SQL update query
+        cursor = db.get_db().cursor()
+        cursor.execute(query, (new_description, activityID))
+        db.get_db().commit()
+        
+        return jsonify({"message": "Activity updated successfully!"}), 200
+    except Exception as e:
+        db.get_db().rollback()
+        return jsonify({"error": str(e)}), 500

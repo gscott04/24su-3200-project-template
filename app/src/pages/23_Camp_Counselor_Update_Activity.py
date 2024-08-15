@@ -1,6 +1,7 @@
 import logging
 import streamlit as st
 import requests
+import json
 from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
 from datetime import date
@@ -13,19 +14,38 @@ st.write("Update an Activity!")
 
 # Create a form for updating activity description
 with st.form("Update activity description for August 8th, 2024 below"):
-    # Input field for the new description
-    
+    # Input fields
     activityID = st.number_input("Please enter the activity ID", step=1)
     description = st.text_input("Please write the new description")
-
+    
     # Submit button for the form 
-    submitted = st.form_submit_button("submit")
-    if submitted: 
-        # Create a dictionary to store the data
-        data = {"description": description}
-        # Display the submitted data on the page 
-
-        # Send a POST request to the API with the submitted data
-        response = requests.put(f'http://api:4000/c/camp_counselor/{activityID}', json=data)
-        response.raise_for_status()
-        st.success("Activity updated successfully!")
+    submitted = st.form_submit_button("Submit")
+    
+if submitted: 
+    # Create a dictionary to store the data
+    data = {"description": description}
+    
+    # Convert the data to JSON
+    json_data = json.dumps(data)
+    
+    # Display the JSON data (optional, for debugging)
+    st.json(json_data)
+    
+    try:
+        # Send a PUT request to the API with the JSON data
+        response = requests.put(f'http://api:4000/c/camp_counselor/{activityID}', 
+                                data=json_data, 
+                                headers={'Content-Type': 'application/json'})
+        
+        if response.status_code == 200:
+            st.success("Activity updated successfully!")
+        else:
+            error_message = response.json().get('error', 'Unknown error occurred')
+            st.error(f"Failed to update activity: {error_message}")
+        
+        # Optional: Display the full response for debugging
+        st.json(response.json())
+        
+    except requests.exceptions.RequestException as e:
+        st.error(f"An error occurred while connecting to the API: {e}")
+        logger.error(f"Error updating activity: {e}")
