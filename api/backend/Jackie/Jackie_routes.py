@@ -34,14 +34,14 @@ def predict_value(c_ID):
 
 
 # 2.2: Deleting a daily schedule for a camp session
-@camp_counselor.route('/camp_counselor/<campID>/<sessionID>', methods=['DELETE'])
-def delete_schedule(campID, sessionID):
+@camp_counselor.route('/camp_counselor/<campID>/<sessionID>/<date>', methods=['DELETE'])
+def delete_schedule(campID, sessionID, date):
    # Get a database cursor to execute the query
    cursor = db.get_db().cursor()
    the_query = f'''
    DELETE FROM DailySchedule 
    USING DailySchedule
-   WHERE DailySchedule.date = 7/27/2024
+   WHERE DailySchedule.date = {date}
 				AND DailySchedule.campID = {campID}
 				AND DailySchedule.sessionID = {sessionID};
                 '''	
