@@ -14,7 +14,7 @@ SideBarLinks()
 st.title("Staff Information Lookup")
 
 # Input for Camp ID
-campID = st.number_input("Enter your Camp ID number:", step=1, key='campID')
+campID = st.number_input("Enter your Camp ID number:", step=1)
 
 # Button to trigger the information retrieval
 if st.button('Get Staff Info'):
@@ -32,11 +32,11 @@ if st.button('Get Staff Info'):
             if staffID_data:
                 for item in staffID_data:
                     # Display each staff's details
-                    if 'campID' in item:
-                        st.write(f"Staff ID: {item['staffID']}, First Name: {item['firstName']}, "
-                                 f"Last Name: {item['lastName']}, Phone: {item['phone']}, Email: {item['email']}")
-                    else:
-                        st.error("Unexpected item structure.")
+                    #if 'campID' in item:
+                        st.write(f"First Name: {item['firstName']}, Last Name: {item['lastName']}"
+                                 f"Phone: {item['phoneNumber']}, Email: {item['email']}")
+                    #else:
+                        #st.error("Unexpected item structure.")
             else:
                 st.warning("No staff information available for the given ID.")
     except requests.RequestException as e:

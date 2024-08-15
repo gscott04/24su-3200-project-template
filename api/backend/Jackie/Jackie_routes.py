@@ -9,6 +9,7 @@ from backend.ml_models.model01 import predict
 
 camp_counselor = Blueprint('camp_counselor', __name__)
 
+# 2.1 staff info lookup
 @camp_counselor.route('/camp_counselor/<c_ID>', methods=['GET'])
 def predict_value(c_ID):
     cursor = db.get_db().cursor()
@@ -16,9 +17,7 @@ def predict_value(c_ID):
     SELECT s.firstName, s.lastName, s.phoneNumber, s.email
     FROM Staff s
     JOIN CampSession cs ON s.sessionID = cs.sessionID
-    WHERE s.campID = {c_ID} 
-    AND cs.startDate <= 7/10/2024 
-    AND cs.endDate >= 8/5/2024;
+    WHERE s.campID = {c_ID}
     ;
     '''
     cursor.execute(the_query)
