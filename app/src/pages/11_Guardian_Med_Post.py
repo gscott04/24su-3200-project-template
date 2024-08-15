@@ -17,7 +17,7 @@ with st.form("enter med info"):
     # Input field for the camperID
     c_id = st.text_input("Please input your camper's ID:")
     # Input field for the medical condition ID
-    m_id = st.text_input("Pleas input the medical condition's ID (see table below):")
+    m_id = st.text_input("Please input the medical condition's ID (see table below):")
     # Submit button for the form 
     submitted = st.form_submit_button("submit")
     if submitted: 
