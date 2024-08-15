@@ -17,14 +17,14 @@ st.write('### What would you like to do today?')
 if st.button('View Cabin Information', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/61_Camp_Director_Cabin_Info.py')
+  st.switch_page('pages/31_Camp_Director_Cabin_Info.py')
 
 if st.button('Get a Guardians Contact Info', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/62_Camp_Director_Guardian_Info.py')
+  st.switch_page('pages/32_Camp_Director_Guardian_Info.py')
 
 if st.button("Find Guardians Missing Payments",
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/63_Camp_Director_Guardian_Paid.py')
+  st.switch_page('pages/33_Camp_Director_Guardian_Paid.py')

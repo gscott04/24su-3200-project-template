@@ -17,14 +17,14 @@ st.write('### What would you like to do today?')
 if st.button('Get Staff Information', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/51_Camp_Counselor_Staff_Info.py')
+  st.switch_page('pages/21_Camp_Counselor_Staff_Info.py')
 
 if st.button('Delete Schedule Information', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/52_Camp_Counselor_Delete.py')
+  st.switch_page('pages/22_Camp_Counselor_Delete.py')
 
 if st.button("Update Actvity Description",
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/53_Camp_Counselor_Update_Activity.py')
+  st.switch_page('pages/23_Camp_Counselor_Update_Activity.py')

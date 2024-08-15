@@ -203,9 +203,47 @@ CREATE TABLE IF NOT EXISTS RequiredItems (
         ON UPDATE cascade ON DELETE restrict
 );
 
-INSERT INTO Guardian (guardianID, firstName, lastName, email, phone, paid)
-VALUES (1,'Katy', 'Ito', 'katyito@gmail.com', '508-444-2345', TRUE),
-       (2, 'Dan', 'Appleseed', 'danapple@gmail.com', '617-222-6789', TRUE);
+INSERT INTO Guardian (guardianID, firstName, lastName, email, phone, paid) VALUES
+(1, 'Katy', 'Ito', 'katyito@example.com', '154-669-8535', false),
+(2, 'Cello', 'Matijevic', 'cmatijevic1@example.com', '175-692-0136', false),
+(3, 'Tabbie', 'Bestman', 'tbestman2@example.com', '767-650-3379', false),
+(4, 'Alfons', 'Symmons', 'asymmons3@example.com', '363-623-9076', false),
+(5, 'Anastasie', 'Bunn', 'abunn4@example.com', '359-824-1239', true),
+(6, 'Maxie', 'Hartland', 'mhartland5@example.com', '305-867-1169', false),
+(7, 'Dinnie', 'Tayt', 'dtayt6@example.com', '249-271-7971', false),
+(8, 'Rhetta', 'Gounet', 'rgounet7@example.com', '835-593-8796', true),
+(9, 'Rollin', 'Unworth', 'runworth8@example.com', '979-473-6990', false),
+(10, 'Tiff', 'Hyndman', 'thyndman9@example.com', '330-392-8711', true),
+(11, 'Flori', 'Burl', 'fburla@example.com', '748-186-1654', true),
+(12, 'Meredithe', 'Sooper', 'msooperb@example.com', '183-319-0427', true),
+(13, 'Thea', 'Carlo', 'tcarloc@example.com', '607-590-3125', true),
+(14, 'Karissa', 'Clemas', 'kclemasd@example.com', '973-605-3073', true),
+(15, 'Thor', 'Cristofvao', 'tcristofvaoe@example.com', '886-148-6953', true),
+(16, 'Pearline', 'MacCurlye', 'pmaccurlyef@example.com', '777-493-3832', false),
+(17, 'Minne', 'Vokes', 'mvokesg@example.com', '649-721-9403', false),
+(18, 'Yard', 'Firmin', 'yfirminh@example.com', '268-350-4284', true),
+(19, 'Tonnie', 'Basill', 'tbasilli@example.com', '138-463-9286', true),
+(20, 'Tyler', 'Keirl', 'tkeirlj@example.com', '737-232-5249', false),
+(21, 'Antonietta', 'Sommerly', 'asommerlyk@example.com', '179-893-3121', true),
+(22, 'Bobbette', 'Mulcock', 'bmulcockl@example.com', '921-452-0516', false),
+(23, 'Nessy', 'Dearlove', 'ndearlovem@example.com', '651-737-9240', true),
+(24, 'Burton', 'Waterstone', 'bwaterstonen@example.com', '312-247-3200', true),
+(25, 'Noemi', 'Gummery', 'ngummeryo@example.com', '823-881-9429', false),
+(26, 'Janean', 'Mattiussi', 'jmattiussip@example.com', '422-822-6709', false),
+(27, 'Marika', 'Cliffe', 'mcliffeq@example.com', '782-106-3468', true),
+(28, 'Bartel', 'Seers', 'bseersr@example.com', '585-560-0841', false),
+(29, 'Shelli', 'Regi', 'sregis@example.com', '294-954-6975', false),
+(30, 'Afton', 'MacDonell', 'amacdonellt@example.com', '347-320-3441', true),
+(31, 'Rosalinda', 'Woodison', 'rwoodisonu@example.com', '572-973-2582', true),
+(32, 'Finlay', 'Boater', 'fboaterv@example.com', '730-653-2163', false),
+(33, 'Eirena', 'Greg', 'egregw@example.com', '254-833-9736', true),
+(34, 'Honey', 'O''Devey', 'hodeveyx@example.com', '463-917-1637', false),
+(35, 'Alexandro', 'Dencs', 'adencsy@example.com', '638-344-9078', true),
+(36, 'Helen-elizabeth', 'Tiptaft', 'htiptaftz@example.com', '396-218-8059', true),
+(37, 'Brandy', 'Bindon', 'bbindon10@example.com', '463-193-6261', true),
+(38, 'Dedie', 'Dutt', 'ddutt11@example.com', '390-423-4728', true),
+(39, 'Carroll', 'Mc Andrew', 'cmcandrew12@example.com', '601-423-0274', false),
+(40, 'Shel', 'Olenchikov', 'solenchikov13@example.com', '958-489-3916', false);
 
 INSERT INTO Camp (active, campID, campName, capacity, campDirectorID, phone, email)
 VALUES (1, 34098, 'PrimeTime', 900, 87620, '908-320-6572', 'primeT@email.com'),
