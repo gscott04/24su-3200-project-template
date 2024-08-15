@@ -24,7 +24,7 @@ if st.button('Get Contact Info for Your Camps', type='primary', use_container_wi
             try:
                 camp_contact = response.json()
                 # Display camp contact information
-                st.write(f"Contact info for camps assigned to app admin: {adminID}")
+                st.write(f"Contact info for camps assigned to you (Admin ID: {adminID})")
                 if camp_contact:
                     # Loop through the camp contact for relevant info
                     for item in camp_contact:

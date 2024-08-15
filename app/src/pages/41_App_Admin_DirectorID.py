@@ -28,7 +28,7 @@ if st.button('Get Director IDs', type='primary', use_container_width=True):
                 # Loop through the director data for relevant info
                 for item in director_data:
                     if 'campDirectorID' in item:
-                        st.write(f"Camp Director ID: {item['campDirectorID']}")
+                        st.write(f"Camp: {item['campName']}, Camp Director ID: {item['campDirectorID']}")
                     # Error messages 
                     else:
                         st.write(f"Unexpected item structure: {item}")

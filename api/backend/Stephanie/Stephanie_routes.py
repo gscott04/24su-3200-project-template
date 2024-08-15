@@ -16,7 +16,7 @@ def get_directors(adminID):
         # Get a database cursor to execute the query
         cursor = db.get_db().cursor()
         the_query = '''
-        SELECT campDirectorID FROM Admin a
+        SELECT c.campName, campDirectorID FROM Admin a
         JOIN Location l ON a.adminID = l.adminID
         JOIN CampLoc cl ON l.locationID = cl.locationID
         JOIN Camp c ON cl.campID = c.campID
@@ -34,11 +34,11 @@ def get_directors(adminID):
         for row in the_Data:
             # Handle different possible row structures 
             if isinstance(row, dict):
-                the_response.append({"campDirectorID": row.get('campDirectorID')})
+                the_response.append({"campName": row.get('campName'), "campDirectorID": row.get('campDirectorID')})
             elif isinstance(row, (list, tuple)):
-                the_response.append({"campDirectorID": row[0] if row else None})
+                the_response.append({"campName": row[0] if len(row) > 0 else None, "campDirectorID": row[1] if len(row) > 1 else None})
             else:
-                the_response.append({"campDirectorID": row if row is not None else None})
+                the_response.append({"campName": row, "campDirectorID": row})
         # Return the response as JSON with 200 OK status 
         return jsonify(the_response), 200
     except Exception as e:
@@ -95,9 +95,9 @@ def admin_contacts(adminID):
     for row in the_Data:
         # Handle different possible row structures
         if isinstance(row, dict):
-            the_response.append({"campName": row.get('campName'),"phone": row.get('phone'), "email": row.get('email')})
+            the_response.append({"campName": row.get('campName'), "phone": row.get('phone'), "email": row.get('email')})
         elif isinstance(row, (list, tuple)):
-            the_response.append({"campName": row[0] if len(row) > 0 else None, "phone": row[0] if len(row) > 0 else None, "email": row[1] if len(row) > 1 else None})
+            the_response.append({"campName": row[0] if len(row) > 0 else None, "phone": row[1] if len(row) > 1 else None, "email": row[2] if len(row) > 2 else None})
         else:
             the_response.append({"campName": row, "phone": row, "email": row})
     # Return the response as a JSON

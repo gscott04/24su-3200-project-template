@@ -24,7 +24,7 @@ if st.button('Get Contact Info', type='primary', use_container_width=True):
             try:
                 guardian_contact = response.json()
                 # Display guardian contact information 
-                st.write(f"Contact info for guardians based on your ID: {adminID}")
+                st.write(f"Contact info for guardians based on your ID (Admin ID: {adminID})")
                 if guardian_contact:
                     # Loop through the guardian contact data and display the contact information
                     for item in guardian_contact:
