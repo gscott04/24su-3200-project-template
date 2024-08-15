@@ -33,21 +33,20 @@ def predict_value(c_ID):
     return the_response
 
 
-# 2.2: Deleting required items
-@camp_counselor.route('/camp_counselor/<campID>/<sessionID>/<date>', methods=['DELETE'])
+# 2.2: Deleting activity
+@camp_counselor.route('/camp_counselor/<activityID>', methods=['DELETE'])
 def delete_schedule(activityID):
    # Get a database cursor to execute the query
    cursor = db.get_db().cursor()
-   query = f'''
+   query = '''
    DELETE FROM Activity 
-   WHERE activityID  = {activityID};
+   WHERE activityID  = %s;
     '''	
-   # Execute the SQL deletion query	
-   cursor.execute(query, activityID)
-   # Commit the changes to the database
-   db.get_db.commit() 
+   # Execute the SQL deletion query: note that deletions will not be saved
+   # throughout different user sessions to prevent conflicts caused by deletions
+   cursor.execute(query, (activityID,))
    # Return a success message 
-   return jsonify({"message": "Daily schedule deleted successfully"}), 200
+   return jsonify({"message": "Activity deleted successfully!"}), 200
 
 
 # 2.3: Updating an activity description for a camp session
