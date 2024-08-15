@@ -10,9 +10,9 @@ from backend.db_connection import db
 # Creating a Blueprint for camp_director routes
 camp_director = Blueprint('camp_director', __name__)
 
+# 3.1: Return the cabin name for a staffID
 @camp_director.route('/camp_director/<staffID>', methods=['GET'])
 def staff_cabins(staffID):
-    '''Route to get cabins assigned to a staff member by their staffID.''' 
     # Get a database cursor to execute the query 
     cursor = db.get_db().cursor()
     the_query = f'''
@@ -31,10 +31,9 @@ def staff_cabins(staffID):
 
     return the_response 
 
-
+# 3.2: Return the guardian information for a camperID
 @camp_director.route('/camp_director/G/<camperID>', methods=['GET'])
 def guardian_info(camperID):
-    '''Route to get guardian information for a camper by their camperID.'''
     # Get a database cursor to execute the query
     cursor = db.get_db().cursor() 
     the_query = f'''
@@ -53,10 +52,9 @@ def guardian_info(camperID):
     
     return the_response 
 
-
+# 3.3: Get all the unpaid guardians 
 @camp_director.route('/camp_director/unpaid', methods=['GET'])
 def unpaid_guardians(): 
-    '''Route to get all unpaid guardians.'''
     # Get a database cursor 
     cursor = db.get_db().cursor()
     the_query = '''SELECT g.firstName, g.lastName, g.phone FROM Guardian g WHERE g.paid = 0 ORDER BY g.lastName ASC;

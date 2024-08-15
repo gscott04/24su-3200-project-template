@@ -7,6 +7,7 @@ import json
 from backend.db_connection import db
 from backend.ml_models.model01 import predict
 
+# Creating a Blueprint for camp_counselor routes
 camp_counselor = Blueprint('camp_counselor', __name__)
 
 # 2.1 staff info lookup
