@@ -80,7 +80,7 @@ def admin_contacts(adminID):
     # Get a database cursor to execute the query
     cursor = db.get_db().cursor()
     the_query = '''
-    SELECT c.phone, c.email, a.adminID FROM Admin a
+    SELECT c.campName, c.phone, c.email, a.adminID FROM Admin a
     JOIN Location l ON a.adminID = l.adminID
     JOIN CampLoc cl ON l.locationID = cl.locationID
     JOIN Camp c ON cl.campID = c.campID 
@@ -95,10 +95,10 @@ def admin_contacts(adminID):
     for row in the_Data:
         # Handle different possible row structures
         if isinstance(row, dict):
-            the_response.append({"phone": row.get('phone'), "email": row.get('email')})
+            the_response.append({"campName": row.get('campName'),"phone": row.get('phone'), "email": row.get('email')})
         elif isinstance(row, (list, tuple)):
-            the_response.append({"phone": row[0] if len(row) > 0 else None, "email": row[1] if len(row) > 1 else None})
+            the_response.append({"campName": row[0] if len(row) > 0 else None, "phone": row[0] if len(row) > 0 else None, "email": row[1] if len(row) > 1 else None})
         else:
-            the_response.append({"phone": row, "email": row})
+            the_response.append({"campName": row, "phone": row, "email": row})
     # Return the response as a JSON
     return jsonify(the_response), 200

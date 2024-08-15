@@ -29,7 +29,7 @@ if st.button('Get Contact Info for Your Camps', type='primary', use_container_wi
                     # Loop through the camp contact for relevant info
                     for item in camp_contact:
                         # Display camp information 
-                        st.write(f"Camp Phone: {item['phone']}, Camp Email: {item['email']}")
+                        st.write(f"Camp: {item['campName']}, Camp Phone: {item['phone']}, Camp Email: {item['email']}")
                 # Error messages
                 else:
                     st.write(f"No contact information available for your camps.")
