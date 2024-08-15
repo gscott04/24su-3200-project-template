@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
 
-SideBarLinks()
+SideBarLinks(show_home=True)
 
 st.title("Welcome to SummerSync!")
 st.divider()
@@ -13,6 +13,7 @@ from camper registrations to activity schedules. Our application is designed
 to simplify these processes, allowing camp administrators, staff, and families 
 to focus on what truly matters - creating unforgettable summer experiences.""");
 st.divider()
+
 st.header("Our Mission", divider="green")
 st.text("""At SummerSync, we aim to revolutionize summer camp operations by providing a 
 comprehensive, user-friendly platform that addresses the unique needs of sleepaway 
@@ -20,6 +21,7 @@ camps and short-term programs alike. Our scalable application adapts to camps
 of all sizes, ensuring that every aspect of camp life is organized, accessible, 
 and secure.""")
 st.divider()
+
 st.header("Key Features", divider="green")
 st.subheader("Centralized Information Management")
 st.text("""Store and access vital camper and staff information, including contact details, 
@@ -34,6 +36,7 @@ st.subheader("Health and Safety")
 st.text("""Empower health services with tools to manage allergies, medications, and 
 medical conditions.""")
 st.divider()
+
 st.header("Who Benefits?", divider="green")
 st.text("""Camp Administrators: Gain a bird's-eye view of camp operations and streamline 
 administrative tasks.""")
@@ -43,6 +46,7 @@ information.""")
 st.text("""Parents/Guardians: Stay connected with their campers, manage billing, and receive 
 camp updates.""")
 st.divider()
+
 st.header("Our Commitment", divider="green")
 st.text("""SummerSync is more than just software; it's a commitment to enhancing the summer 
 camp experience for everyone involved. By reducing administrative burdens, we 
