@@ -56,7 +56,10 @@ def guardian_info(camperID):
 def unpaid_guardians(): 
     # Get a database cursor 
     cursor = db.get_db().cursor()
-    the_query = '''SELECT g.firstName, g.lastName, g.phone FROM Guardian g WHERE g.paid = 0 ORDER BY g.lastName ASC;
+    the_query = '''SELECT g.firstName, g.lastName, g.phone 
+                        FROM Guardian g 
+                        WHERE g.paid = 0 
+                        ORDER BY g.lastName ASC;
     '''
     # Execute the SQL query
     cursor.execute(the_query)
