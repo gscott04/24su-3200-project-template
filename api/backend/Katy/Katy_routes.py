@@ -10,6 +10,7 @@ from backend.ml_models.model01 import predict
 
 guardian = Blueprint('guardian', __name__)
 
+# 1.1 Inserting medical needs for a child
 @guardian.route('/guardian', methods=['POST'])
 def med_needs():
     # collecting data from the request object 
@@ -33,6 +34,7 @@ def med_needs():
     
     return 'Success!'
 
+# 1.2 Getting required items for a given day
 @guardian.route('/guardian/<c_date>', methods=['GET'])
 def day_info(c_date):
     cursor = db.get_db().cursor()
@@ -55,17 +57,16 @@ def day_info(c_date):
     the_response.mimetype = 'application/json'
     return the_response
 
-# Get all customers from the DB
-@guardian.route('/guardian/<c_id>', methods=['GET'])
+# 1.3 Getting a child's counselor's contact info
+@guardian.route('/guardian/CC/<c_id>', methods=['GET'])
 def camper_info(c_id):
     cursor = db.get_db().cursor()
-    the_query = f'''
+    the_query = '''
     SELECT phoneNumber, email
     FROM Camper
         JOIN Staff ON Camper.staffID = Staff.staffID
     WHERE Camper.camperID = %s;
 '''
-    
     cursor.execute(the_query, (c_id,))
     the_data = cursor.fetchall()
 
