@@ -16,7 +16,7 @@ How to start the SummerSync application:
 2. Once cloned, open the 24su-3200-summer-sync repo in VSCode (or your favorite code editor).
 3. Head to the file explorer and copy the ".env.template" file, paste it, and rename the new file ".env".
 4. Open the file and check that DB_NAME=summersync and update MYSQL_ROOT_PASSWORD with your own password.
-5. In the terminal navigate to 24su-3200-summer-sync and check that you are can use docker by writing "docker --version".
+5. In the terminal, navigate to 24su-3200-summer-sync and check that you can use docker by writing "docker --version".
 6. Start (or build) the containers by writing "docker compose up -d". The containers "front-end", "mysql_db", and "web-api" should be running now.
 
 To run SummerSync in your browser:
