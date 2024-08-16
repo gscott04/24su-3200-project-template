@@ -11,12 +11,20 @@ Data Dwellers Team Members:
 - Lynna Truong
 - Nubaha Ahsan
 
-We ask that all users please double check they have all the necessary ports and information downloaded, you can find this in requirements.txt. In order to fully ensure that everything is running you must also run and compose your docker. You can do this in your terminal writing the statement "docker compose up -d". 
+How to start the SummerSync application:
+1. Clone the repository to your local machine, either through GitHub Desktop or the terminal.
+2. Once cloned, open the 24su-3200-summer-sync repo in VSCode (or your favorite code editor).
+3. Head to the file explorer and copy the ".env.template" file, paste it, and rename the file to ".env".
+4. Open the file and check that DB_NAME=summersync and update MYSQL_ROOT_PASSWORD with your own password.
+5. In the terminal navigate to 24su-3200-summer-sync and check that you are can use docker by writing "docker --version".
+6. Start (or build) the containers by writing "docker compose up -d". The containers "front-end", "mysql_db", and "web-api" should be running now.
 
-To start the application either:
-1. Enter the file ../24su-3200-summer-sync/app/src on your terminal and write "Streamlit run Home.py"
+To run SummerSync in your browser:
+1. Navigate to ../24su-3200-summer-sync/app/src on your terminal and write "Streamlit run Home.py"
   OR
 2. Type in your browser "localhost:8501"
+
+We ask that all users please double check they have all the necessary ports and information downloaded, you can find this in requirements.txt.
 
 ## Current Project Components
 
@@ -27,7 +35,11 @@ Currently, there are three major components:
 
 ## User Personas
 
-Within Summer Sync we have four users personas. We have Katy Ito, a Guardian of a child at a camp using the summer sync site, Jackie Saturn, A camp counselor working at one of our many camps, Chad Cheese, A Camp Director here at summersync and Stephanie Black the head of Outreach here at summersync. 
+Within Summer Sync we have four users personas:
+- Katy Ito, the guardian of a camper at a camp that uses SummerSync.
+- Jackie Saturn, a camp counselor for a camp that uses SummerSync.
+- Chad Cheese, a camp director for a camp that uses SummerSync.
+- Stephanie Black, a member of the administrative team for SummerSync. 
 
 ### Tasks Pages and the Site!
 
